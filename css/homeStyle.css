@@ -1,0 +1,84 @@
+/*Enables the use of flex box*/
+body 
+{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+}
+  /*CSS for the first part of the homepage*/
+.col-lg-8 
+{
+    flex: 2;
+    background-color: #1d1d1c;;
+}
+  /*CSS for the second part of the homepage*/
+.col-lg-4 
+{
+    background-color: #1d1d1c;;
+    height: 100vh;
+}
+/*centers the content*/
+.center 
+{
+    display: flex;
+    justify-content: center;
+     align-items: center;
+     margin-top: -100px;
+     height: 100vh;
+
+}
+/*adjusts the heading*/
+.left-align 
+{
+    position: relative;
+    font-size: 50px;
+    margin-right: 50px;
+    color: #A65A28;
+}
+/*modifies the subheading*/
+.subheading
+{
+    font-size: 20px;
+    color:#A65A28;
+}
+ /*adjusts the text inside div center*/
+.content 
+ {
+    position: relative;
+    left: 40px;
+    margin-right: 50px;
+}
+/*css for the footer*/
+footer 
+  {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #1d1d1c;;
+    color: #fff;
+    text-align: center;
+    padding: 6px;
+}
+
+/*adjusts color of navbar*/
+  .navbar {
+    background-color: #1d1d1c;;
+  }
+/*adjusts the color of the sign up button*/
+  .orange-btn {
+    color: #D4D4D4;
+    background-color: #A65A28;
+  }
+  
+  
+  
+  
+  
+  
+  
+
+ 
+
+  
+  

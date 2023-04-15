@@ -1,0 +1,32 @@
+body
+ {
+    background-image: url("backgroundReg.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+   }
+  .center
+  {
+    margin:150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+   .calculator
+   {
+       background-color: white;
+       box-shadow: 10px 0px 10px rgba(0, 0, 0, 1); /* shadow on the right side */
+       border-radius:  25px;
+      
+   }
+/*adjusts color of navbar*/
+.navbar {
+    background-color: #1d1d1c;;
+  }
+/*adjusts the color of the sign up button*/
+  .orange-btn {
+    color: white;
+    background-color: #1d1d1c;
+  }
+  
+  
