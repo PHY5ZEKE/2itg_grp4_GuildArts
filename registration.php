@@ -1,6 +1,3 @@
-<?php
-require_once('config.php');
-?>
 <html>
     <head>
         <title>GuildArts Registration</title>
@@ -9,7 +6,7 @@ require_once('config.php');
         <!--JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
         <!--CSS-->
-        <link href="css\regAndLogStyle.css" rel="stylesheet">
+        <link href="css\registrationStyle.css" rel="stylesheet">
 
     </head>
 
@@ -19,7 +16,7 @@ require_once('config.php');
                 <div class="container-fluid">
                     <!--Navbar Logo-->
                   <a class="navbar-brand" href="#">
-                    <img src="\GuildArts\assets\Logo.png" alt="Logo" width="55" height="55">
+                    <img src="assets\Logo.png" alt="Logo" width="55" height="55">
                   </a>
                     <!--Navbar Name-->
                   <a class="navbar-brand" href="#" style = "color: #D4D4D4;">GuildArts</a>
@@ -50,14 +47,14 @@ require_once('config.php');
                       </li>
                     </ul>
                     
-                      <a class="nav-link" aria-current="page" href="login.html" style ="color:#D4D4D4">Already Have an Account? </a>
+                      <a class="nav-link" aria-current="page" href="login.php" style ="color:#D4D4D4">Already Have an Account? </a>
                       
                   </div>
                 </div>
               </nav>
               <div class ="center">
         <div class = "calculator">
-            <form action ="registration.php" method ="post"> 
+            <form action ="includes\signup.inc.php" method ="post"> 
                 <div class = "container">
                     <div class = "row">
                         <div class ="col-sm">
@@ -65,77 +62,65 @@ require_once('config.php');
                <hr class = "mb-3">
                  <center><h1>Registration</h1></center>
                 
-                <label for ="firstname"><b>First Name</b></label>
-                <input class ="form-control" type = "text" id ="firstname" name ="firstname" required>
-
-                <label for ="lastname"><b>Last Name</b></label>
-                <input input class ="form-control" type = "text" id ="lastname" name ="lastname" required>
+                <label for ="firstname"><b>Full Name</b></label>
+                <input class ="form-control" type = "text" name ="name" required>
 
                 <label for ="emailaddress"><b>Email Address</b></label>
-                <input input class ="form-control" type = "text" id ="email" name ="email" required>
+                <input input class ="form-control" type = "text" name ="email" required>
 
-                <label for ="contactnumber"><b>Contact Number</b></label>
-                <input input class ="form-control" type = "text" id ="contactnumber" name ="contactnumber" required>
+                <label for ="username"><b>Username</b></label>
+                <input input class ="form-control" type = "text" name ="uid" required>
 
                 <label for ="password"><b>Password</b></label>
-                <input input class ="form-control" type = "text" id ="password" name ="password" required>
+                <input input class ="form-control" type = "password" name ="pwd" required>
+              
+                <label for ="password"><b>Confirm Password</b></label>
+                <input input class ="form-control" type = "password" name ="confirmPwd" required>
                 <hr class = "mb-3">
-                <center><input class ="btn orange-btn"  type = "submit" name = "create" id ="register" value = "Sign Up"></center>
+
+                <center><input class ="btn orange-btn"  type = "submit" name = "submit"></center>
+                <?php
+    if(isset($_GET["error"]))
+    {
+      if($_GET["error"]=="emptyinput")
+      {
+        echo "<p>Fill in all Fields!</p>";
+      }
+      else if($_GET["error"]=="invalidUid")
+      {
+        echo "<p>Choose a proper username!</p>";
+      }
+      else if($_GET["error"]=="invalidEmail")
+      {
+        echo "<p>Choose a proper email</p>";
+      }
+      else if($_GET["error"]=="passwordsdontmatch")
+      {
+        echo "<p>Passwords do not match!</p>";
+      }
+      else if($_GET["error"]=="stmtfailed")
+      {
+        echo "<p>Something went wrong!</p>";
+      }
+      else if($_GET["error"]=="usernametaken")
+      {
+        echo "<p>Username or Email Already Taken!</p>";
+      }
+      else if($_GET["error"]=="none")
+      {
+        echo "<p>You have succesfully registered!</p>";
+      }
+
+    }
+    ?>
 
                         </div>
                     </div>
                 </div>
             </form>
         </div>
+        
     </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script type ="text/javascript">
-            $(function(){
-                $('#register').click(function(e){
-
-                    var valid = this.form.checkValidity();
-
-                    if(valid)
-                    {
-                        var firstname   = $('#firstname').val();
-			            var lastname	= $('#lastname').val();
-			            var email 		= $('#email').val();
-			            var contactnumber = $('#contactnumber').val();
-			            var password 	= $('#password').val();
-                        
-                        e.preventDefault();
-
-                        $.ajax({
-					type: 'POST',
-					url: 'process.php',
-					data: {firstname: firstname,lastname: lastname,email: email,contactnumber: contactnumber,password: password},
-					success: function(data){
-					Swal.fire({
-								'title': 'Successful',
-								'text': data,
-								'type': 'success'
-								})
-							
-					},
-					error: function(data){
-						Swal.fire({
-								'title': 'Errors',
-								'text': 'There were errors while saving the data.',
-								'type': 'error'
-								})
-					}
-				});
-                    }
-                    
-
-                    
-
-                })
-
-               
-               
-            })
-        </script>
+    
     </body>
 </html>
