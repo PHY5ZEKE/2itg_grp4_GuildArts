@@ -48,7 +48,7 @@
                <hr class = "mb-3">
                  <center><h1>Login</h1></center>
                 
-                <label for ="emailaddress"><b>Email Address/Username</b></label>
+                <label for ="emailaddress"><b>Username</b></label>
                 <input input class ="form-control" type = "text" name ="uid" required>
 
                 <label for ="password"><b>Password</b></label>

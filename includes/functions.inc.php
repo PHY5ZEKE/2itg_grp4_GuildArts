@@ -132,7 +132,13 @@ function loginUser($conn,$username,$pwd)
         session_start();
         $_SESSION["userid"]= $uidExists["usersId"];
         $_SESSION["useruid"]= $uidExists["usersUid"];
-        header("location: ../profile.php");
+        session_regenerate_id();
+		$_SESSION['loggedin'] = TRUE;
+		$_SESSION['username'] = $uidExists["usersUid"];
+        $_SESSION['name'] = $uidExists["usersName"];
+        $_SESSION['email'] = $uidExists["usersEmail"];
+		$_SESSION['id'] = $uidExists["usersId"];
+        header("location: ../main.php");
     }
 }
 
