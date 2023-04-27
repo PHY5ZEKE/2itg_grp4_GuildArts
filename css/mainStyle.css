@@ -1,3 +1,12 @@
+body{
+	background-color: #1d1d1c;
+
+}
+/*adjusts color of navbar*/
+.navbar {
+    background-color: #1d1d1c;
+  }
+
 .navtop {
 	background-color: #2f3947;
 	height: 60px;

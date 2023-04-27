@@ -1,0 +1,25 @@
+body{
+	background-color: #1d1d1c;
+
+}
+/*adjusts color of navbar*/
+.navbar {
+    background-color: #1d1d1c;
+  }
+
+.content {
+    text-align: center;
+    
+}
+
+.content > p, .content > div {
+    
+    font-size: 22px;
+	color: #fff;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+	margin: 25px 0;
+	padding: 25px;
+	background-color: #1d1d1c;
+}
+
+
