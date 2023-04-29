@@ -26,7 +26,10 @@ body
 /*adjusts the color of the sign up button*/
   .orange-btn {
     color: white;
-    background-color: #1d1d1c;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #A65A28;
   }
+
   
   
