@@ -89,6 +89,7 @@ $stmt->close();
             <h3>Email: &nbsp<?=$_SESSION['email']?><h3> 
             <h3>0927-509-2022<h3>
             <h3>"this is a filler bio"<h3>
+            <a href="profileUpdate.html" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Edit Profile</a>
             </div>
 </div>
 </div>
