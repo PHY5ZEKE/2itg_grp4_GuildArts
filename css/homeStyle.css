@@ -1,3 +1,13 @@
+/* description */
+.desc{
+  color:#D4D4D4;
+  text-align: justify; 
+  padding-right: 50px;
+  opacity: 70%;
+  margin-left: 50px;
+  margin-right: 20%;
+}
+
 /*Enables the use of flex box*/
 body 
 {
@@ -31,15 +41,16 @@ body
 .left-align 
 {
     position: relative;
-    font-size: 50px;
-    margin-right: 50px;
+    font-size: 120px;
+    margin-left: 40px;
     color: #A65A28;
 }
 /*modifies the subheading*/
 .subheading
 {
-    font-size: 20px;
+    font-size: 30px;
     color:#A65A28;
+    margin-left: 50px;
 }
  /*adjusts the text inside div center*/
 .content 

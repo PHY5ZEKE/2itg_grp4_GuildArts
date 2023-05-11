@@ -31,7 +31,7 @@
                       <!--Dropdown Link for Features-->
                     </ul>
                     
-                      <a class="nav-link" aria-current="page" href="registration.php" style ="color:#D4D4D4">Don't have an account? </a>
+                     
                       
                   </div>
                 </div>
@@ -54,7 +54,10 @@
                 <label for ="password"><b>Password</b></label>
                 <input input class ="form-control" type = "pwd" name ="pwd" required>
                 <hr class = "mb-3">
+                <center><a class="nav-link" aria-current="page" href="registration.php" style="color:#525252;font-size: 19px;">Don't have an account? Click Me</a></center>
+                </br>
                 <center><input class ="btn orange-btn"  type = "submit" name ="submit" value = "Log In"></center>
+                
                 <?php
     if(isset($_GET["error"]))
     {
