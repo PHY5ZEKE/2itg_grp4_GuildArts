@@ -40,7 +40,7 @@ if(isset($_POST['submit']))
 
                 if(empty($imageTitle)||empty($imageDesc))
                 {
-                    header("Location:../profile.php?upload=empty");
+                    header("Location:../main.php?upload=empty");
                     exit();
                 }
                 else
@@ -70,7 +70,7 @@ if(isset($_POST['submit']))
 
                             move_uploaded_file($fileTempName,$fileDestination);
 
-                            header("Location:../profile.php?upload=success");
+                            header("Location:../main.php?upload=success");
 
                         }
                     }

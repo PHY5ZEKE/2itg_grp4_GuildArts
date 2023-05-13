@@ -93,52 +93,9 @@ $stmt->close();
             </div>
 </div>
 </div>
-  <section class = "gallery-links">
-    <div class ="wrapper">
-      <h2>Gallery<h2>
-        <div class = "gallery-container">
-        <?php
-        include_once 'includes\dbh.inc.php';
+  
 
-        $sql = "SELECT * FROM gallery ORDER BY orderGallery DESC;";
-        $stmt = mysqli_stmt_init($conn);
-        if(!mysqli_stmt_prepare($stmt,$sql))
-        {
-          echo "SQL stament failed! HAHAHAHAH";
-        }
-        else
-        {
-          mysqli_stmt_execute($stmt);
-          $result = mysqli_stmt_get_result($stmt);
-
-          while($row = mysqli_fetch_assoc($result))
-          {
-            echo'
-            <a href ="#">
-            <div style = "background-image: url(uploads/gallery/'.$row["imgFullNameGallery"].'); "></div>
-            <h3>'.$row["titleGallery"].'</h3>
-            <p>'.$row["descGallery"].'</p>
-            </a>';
-          }
-        }
-        ?>
-        </div>
-  </section>
-
-  <?php
-  if(isset($_SESSION['username']))
-  {
-  echo'<div class ="gallery-upload">
-    <form action = "includes\galleryupload.inc.php" method ="post" enctype ="multipart/form-data">
-    <input type ="text" name ="filename" placeholder ="File name...">
-    <input type ="text" name ="filetitle" placeholder ="Image Title..." required>
-    <input type ="text" name ="filedesc" placeholder ="Image Description..." required>
-    <input type ="file" name ="file">
-    <button type ="submit" name ="submit">UPLOAD</button>  
-  </form>
-  </div>';
-  }
-  ?>
+  
 
 
 	</body>

@@ -1,6 +1,11 @@
 <?php
 // We need to use sessions, so you should always start sessions using the below code.
 session_start();
+
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: index.html');
+	exit;
+}
 // If the user is not logged in redirect to the login page...
 // if (!isset($_SESSION['loggedin'])) {
 // 	header('Location: login.php');
@@ -50,7 +55,43 @@ session_start();
               </nav>
 		<div class="content">
 
-			<p>Welcome back to the Guild, <?=$_SESSION['name']?>!</p>
+			<p>MAIN GALLERY</p>
+
+      <a href="uploadGallery.php" class="btn btn-success"><i class="fa fa-plus"></i> Upload a Post</a>
+
+    <section class = "gallery-links">
+    <div class ="wrapper">
+      <h2>Gallery<h2>
+        <div class = "gallery-container">
+        <?php
+        include_once 'includes\dbh.inc.php';
+
+        $sql = "SELECT * FROM gallery ORDER BY orderGallery DESC;";
+        $stmt = mysqli_stmt_init($conn);
+        if(!mysqli_stmt_prepare($stmt,$sql))
+        {
+          echo "SQL stament failed! HAHAHAHAH";
+        }
+        else
+        {
+          mysqli_stmt_execute($stmt);
+          $result = mysqli_stmt_get_result($stmt);
+
+          while($row = mysqli_fetch_assoc($result))
+          {
+            echo'
+            <a href ="#">
+            <div style = "background-image: url(uploads/gallery/'.$row["imgFullNameGallery"].'); "></div>
+            <h3>'.$row["titleGallery"].'</h3>
+            <p>'.$row["descGallery"].'</p>
+            </a>';
+          }
+        }
+        ?>
+        </div>
+  </section>
+
+  </div>
 		</div>
 	</body>
 </html>

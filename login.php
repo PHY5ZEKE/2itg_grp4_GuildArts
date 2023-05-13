@@ -28,6 +28,7 @@
                       <li class="nav-item">
                         <a class="nav-link" href="#" style = "color: #D4D4D4;">About</a>
                       </li>
+                      <a class="nav-link" href="index.html" style = "color: #D4D4D4;">Home</a>
                       <!--Dropdown Link for Features-->
                     </ul>
                     
