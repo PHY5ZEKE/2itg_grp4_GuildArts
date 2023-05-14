@@ -98,12 +98,12 @@ text-decoration: none;
 
 
 	width:500px;
-    height:500px;
-	background-size: 100%;
+    height: 500px;
+	background-size: contain;
     background-position:center;
     background-repeat:no-repeat;
     background-repeat:cover;
-
+	
 
 	
 }
