@@ -1,5 +1,11 @@
+html {
+    margin: 0;
+    max-width: 1400px;
+	width: 95%;
+}
+
 body{
-	
+	overflow-x: hidden;
 	background-color: #1d1d1c
 }
 /*adjusts color of navbar*/
@@ -7,9 +13,22 @@ body{
     background-color: #1d1d1c;
   }
 
+.navbar-brand{
+	padding-left: px;
+	padding-right: px;
+}
+
 .content {
-    text-align: center;
+    display: flex;
+	flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content:center; 
     
+}
+
+.container-fluid{
+	display:flex;
 }
 
 .content > p, .content > div {
@@ -69,8 +88,8 @@ a{
 {
 	width: 600px;
 	background-color: #ffffff07;
-
- margin: 100px 10px 0;
+	padding-top: 60px;
+ margin: 100px 0px 0;
  display: flex;
  flex-direction: column;
  flex-wrap: wrap;
@@ -82,7 +101,7 @@ text-decoration: none;
 .gallery-container a h3{
 
 	font-size:xx-large;
-	color: #8a8787;
+	color: #A65A28;
 
 }
 

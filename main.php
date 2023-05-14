@@ -36,7 +36,7 @@ if (!isset($_SESSION['loggedin'])) {
     <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <!--Navbar Logo-->
-                  <a class="navbar-brand" href="#">
+                  <a class="navbar-logo" href="#">
                     <img src="assets\Logo.png" alt="Logo" width="55" height="55">
                   </a>
                     <!--Navbar Name-->
@@ -74,9 +74,10 @@ if (!isset($_SESSION['loggedin'])) {
                   </div>
                 </div>
               </nav>
+              <a href="uploadGallery.php" class="btn btn-success"><i class="fa fa-plus"></i> Upload a Post</a>
 		<div class="content">
       
-      <a href="uploadGallery.php" class="btn btn-success"><i class="fa fa-plus"></i> Upload a Post</a>
+      
 
     <section class = "gallery-links">
         
