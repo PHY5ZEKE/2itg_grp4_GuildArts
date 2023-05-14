@@ -45,7 +45,7 @@ if(isset($_POST['submit'])) {
 
                         move_uploaded_file($fileTmpName,$fileDestination);
 
-                        header("Location:../main.php?upload=success");
+                        header("Location:../resource.php?upload=success");
                         exit();
                     }
                 }
