@@ -91,13 +91,15 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
 
-    while($row = mysqli_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $fileName = $row["resourceFile"]; // Set the file name here
+        $filePath = 'uploads/resources/' . $fileName; // Set the file path here
+
         echo '
-        <a href="../uploads/resources/'.$row["resourceFile"].'" download>
-            <h3>'.$row["typeFile"].'</h3>
-            <h3>'.$row["resourceTitle"].'</h3>
-            <p>'.$row["resourceDesc"].'</p>
-            <h3>'.$row["resourceFile"].'</h3>
+        <a href="' . $filePath . '" download="' . $fileName . '">
+            <h3>' . $row["typeFile"] . '</h3>
+            <h3>' . $row["resourceTitle"] . '</h3>
+            <p>' . $row["resourceDesc"] . '</p>
         </a>';
     }
 }
