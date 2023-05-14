@@ -52,7 +52,7 @@ if (!isset($_SESSION['loggedin'])) {
                   </span>
                     <!--Resource Library-->
                     <span class="hovertext" data-hover="Resource Library">
-                  <button class="btn"><i class="fi fi-rr-books"></i></button>
+                    <a href="resource.php"><button class="btn"><i class="fi fi-rr-books"></i></button></a>
                   </span>
                     <!--Art Marketplace-->
                     <span class="hovertext" data-hover="Art Marketplace">

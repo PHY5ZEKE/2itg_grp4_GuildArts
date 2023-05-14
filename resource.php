@@ -29,7 +29,7 @@ if (!isset($_SESSION['loggedin'])) {
         <!--Bootstrap-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-		<link href="css\mainPageStyle.css" rel="stylesheet" type="text/css">
+		<link href="css\resourceStyle.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
 	</head>
 	<body>
@@ -44,7 +44,7 @@ if (!isset($_SESSION['loggedin'])) {
 
                   <!--Home-->
                   <span class="hovertext" data-hover="Home">
-                    <a href="main.php"><button class="btnNow"><i class="fi fi-ss-house-chimney"></i></button></a>
+                    <a href="main.php"><button class="btn"><i class="fi fi-ss-house-chimney"></i></button></a>
                     </span>
                     <!--Online Workshops-->
                     <span class="hovertext" data-hover="Online Workshops">
@@ -52,7 +52,7 @@ if (!isset($_SESSION['loggedin'])) {
                   </span>
                     <!--Resource Library-->
                     <span class="hovertext" data-hover="Resource Library">
-                  <button class="btn"><i class="fi fi-rr-books"></i></button>
+                  <button class="btnNow"><i class="fi fi-rr-books"></i></button>
                   </span>
                     <!--Art Marketplace-->
                     <span class="hovertext" data-hover="Art Marketplace">
