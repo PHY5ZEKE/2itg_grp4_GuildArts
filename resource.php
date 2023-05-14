@@ -40,7 +40,7 @@ if (!isset($_SESSION['loggedin'])) {
                     <img src="assets\Logo.png" alt="Logo" width="55" height="55">
                   </a>
                     <!--Navbar Name-->
-                  <a class="navbar-brand" href="#" style = "color: #D4D4D4;">Main Gallery</a>
+                  <a class="navbar-brand" href="#" style = "color: #D4D4D4;">Resource Library</a>
 
                   <!--Home-->
                   <span class="hovertext" data-hover="Home">
@@ -74,6 +74,36 @@ if (!isset($_SESSION['loggedin'])) {
                   </div>
                 </div>
               </nav>
+
+              <center><a href="uploadResource.php" class="btn btn-success"><i class="fa fa-plus"></i> Upload a Resource</a></center>
+
+              <section class = "gallery-links">
+        
+        <div class = "gallery-container">
+        <?php
+include_once 'includes/dbh.inc.php';
+
+$sql = "SELECT * FROM resources ORDER BY orderResource DESC;";
+$stmt = mysqli_stmt_init($conn);
+if (!mysqli_stmt_prepare($stmt, $sql)) {
+    echo "SQL statement failed!";
+} else {
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    while($row = mysqli_fetch_assoc($result)) {
+        echo '
+        <a href="../uploads/resources/'.$row["resourceFile"].'" download>
+            <h3>'.$row["typeFile"].'</h3>
+            <h3>'.$row["resourceTitle"].'</h3>
+            <p>'.$row["resourceDesc"].'</p>
+            <h3>'.$row["resourceFile"].'</h3>
+        </a>';
+    }
+}
+?>
+
+  </section>
 		
 	</body>
 </html>
