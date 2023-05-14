@@ -11,6 +11,7 @@ if (!isset($_SESSION['loggedin'])) {
 // 	header('Location: login.php');
 // 	exit;
 // }
+
 ?>
 
 <!DOCTYPE html>
@@ -39,29 +40,46 @@ if (!isset($_SESSION['loggedin'])) {
                     <img src="assets\Logo.png" alt="Logo" width="55" height="55">
                   </a>
                     <!--Navbar Name-->
-                  <!-- <a class="navbar-brand" href="#" style = "color: #D4D4D4;">GuildArts</a> -->
-                  <a href="#"><button class="btnNow"><i class="fi fi-ss-house-chimney"></i></button></a>
+                  <a class="navbar-brand" href="#" style = "color: #D4D4D4;">Main Gallery</a>
+
+                  <!--Home-->
+                  <span class="hovertext" data-hover="Home">
+                    <a href="main.php"><button class="btnNow"><i class="fi fi-ss-house-chimney"></i></button></a>
+                    </span>
+                    <!--Online Workshops-->
+                    <span class="hovertext" data-hover="Online Workshops">
                   <button class="btn"><i class="fi fi-rs-ballot"></i></button>
+                  </span>
+                    <!--Resource Library-->
+                    <span class="hovertext" data-hover="Resource Library">
                   <button class="btn"><i class="fi fi-rr-books"></i></button>
+                  </span>
+                    <!--Art Marketplace-->
+                    <span class="hovertext" data-hover="Art Marketplace">
                   <button class="btn"><i class="fi fi-rs-shop"></i></button>
+                  </span>
+                    <!--Virtual Exhibit-->
+                    <span class="hovertext" data-hover="Virtual Exhibit">
                   <button class="btn"><i class="fi fi-br-eye"></i></button>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <a href="profile.php"><button class="btn"><i class="fi fi-br-user" href="profile.php"></i></button></a>
-                  <a href="includes\logout.inc.php"><button class="btn"><i class="fi fi-bs-sign-out-alt"></i></button></a>
+                  </span>
+                  <!--Profile-->
+                  <span class="hovertext" data-hover="Profile">
+                  <a href="profile.php"><button class="btn">
+                    <i class="fi fi-br-user" href="profile.php"></i></button></a>
+                    </span>
+                  <!--Logout-->
+                    <span class="hovertext" data-hover="Logout">
+                  <a href="includes\logout.inc.php"><button class="btn">
+                    <i class="fi fi-bs-sign-out-alt"></i></button></a>
                   </div>
                 </div>
               </nav>
 		<div class="content">
-
-			<p>MAIN GALLERY</p>
-
+      
       <a href="uploadGallery.php" class="btn btn-success"><i class="fa fa-plus"></i> Upload a Post</a>
 
     <section class = "gallery-links">
-    <div class ="wrapper">
-      <h2>Gallery<h2>
+        
         <div class = "gallery-container">
         <?php
         include_once 'includes\dbh.inc.php';
@@ -79,6 +97,7 @@ if (!isset($_SESSION['loggedin'])) {
 
           while($row = mysqli_fetch_assoc($result))
           {
+            
             echo'
             <a href ="#">
             <div style = "background-image: url(uploads/gallery/'.$row["imgFullNameGallery"].'); "></div>
@@ -88,7 +107,7 @@ if (!isset($_SESSION['loggedin'])) {
           }
         }
         ?>
-        </div>
+
   </section>
 
   </div>

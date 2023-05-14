@@ -31,7 +31,7 @@ if(isset($_POST['submit']))
     {
         if($fileError === 0)
         {
-            if($fileSize < 2000000)
+            if($fileSize < 2000000000)
             {
                 $imageFullName = $newFilename . "." . uniqid("",true). "." .$fileActualExt;
                 $fileDestination = "../uploads/gallery/".$imageFullName;

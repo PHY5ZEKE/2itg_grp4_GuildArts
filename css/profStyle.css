@@ -54,6 +54,36 @@ body{
 	flex-direction: column;
   }
   
+  a{
+	color:#1d1d1c;
+}
+
+  .btn {
+	border: none; /* Remove borders */
+	color: #D4D4D4; /* White text */
+	padding: 12px 16px; /* Some padding */
+	font-size: 30px; /* Set a font size */
+	cursor: pointer; /* Mouse pointer on hover */
+  }
+
+  .btn:hover {
+	background-color: #A65A28;
+  }
+
+  .btnNow {
+	background-color: #A65A28;
+	border: none; /* Remove borders */
+	color: #D4D4D4; /* White text */
+	padding: 12px 16px; /* Some padding */
+	font-size: 30px; /* Set a font size */
+	cursor: pointer; /* Mouse pointer on hover */
+  }
+
+  .btnNow:hover {
+	background-color: #A65A28;
+  }
+
+  
 
 
 
