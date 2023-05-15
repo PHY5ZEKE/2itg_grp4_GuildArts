@@ -106,6 +106,7 @@ if (!isset($_SESSION['loggedin'])) {
             </h5>
             <p class="card-text">' . $row["resourceDesc"] . '</p>
             <a href="readResource.php?id=' . $row['idResource'] . '" class="mr-3" title="View Resource" data-toggle="tooltip"><span class="fa fa-eye"></span></a>
+            <a href="includes\resourcedelete.inc.php?id=' . $row['idResource'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>
             </div>
           </div>';
       }

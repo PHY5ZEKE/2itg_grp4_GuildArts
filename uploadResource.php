@@ -28,16 +28,16 @@ require_once "includes\dbh.inc.php";
                     <form action="includes\resourceupload.inc.php" method="post" enctype ="multipart/form-data">
                         <div class="form-group">
                             <label>Type of File</label>
-                            <input type="text" name="resourceType" class="form-control">
+                            <input type="text" name="resourceType" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label>Title</label>
-                            <input type="text" name="resourceTitle" class="form-control">
+                            <input type="text" name="resourceTitle" class="form-control" required>
                             <span class="invalid-feedback"><?php echo $name_err; ?></span>
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea name="resourceDescription" class="form-control"></textarea>
+                            <textarea name="resourceDescription" class="form-control" required></textarea>
                         </div>
                         <div class="form-group">
                             <input type ="file" name ="file">
