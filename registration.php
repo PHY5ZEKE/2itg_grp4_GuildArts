@@ -7,6 +7,10 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
         <!--CSS-->
         <link href="css\registrationStyle.css" rel="stylesheet">
+        <!-- Online fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 
     </head>
 
@@ -15,11 +19,11 @@
         <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <!--Navbar Logo-->
-                  <a class="navbar-brand" href="#">
-                  <img src="assets\Logo.png" alt="Logo" width="110" height="90" style="padding-left: 20px;">
+                    <a class="navbar-brand" href="#">
+                    <img src="assets\Logo.png" alt="Logo" width="100" height="80" style="padding-left: 20px;">
                   </a>
                     <!--Navbar Name-->
-                  <a class="navbar-brand" href="#" style = "color: #D4D4D4;">GuildArts</a>
+                    <a class="navbar-brand" href="#" style = "color: #D4D4D4;font-family: 'Source Sans Pro', sans-serif; font-size: 20px; opacity: 60%; padding-right: 25px;">GuildArts</a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -28,26 +32,16 @@
                     <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                       <li class="nav-item">
                         <!--Active Link-->
-                        <a class="nav-link" aria-current="page" href="index.html" style = "color: #D4D4D4;">Home</a>
+                        <a class="nav-link" aria-current="page" href="index.html" style = "color: #D4D4D4;font-family: 'Source Sans Pro', sans-serif; font-size: 20px; padding-right: 15px;">Home</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#" style = "color: #D4D4D4;">About</a>
+                        <a class="nav-link" href="#" style = "color: #D4D4D4;font-family: 'Source Sans Pro', sans-serif; font-size: 20px; padding-right: 15px;">About</a>
                       </li>
                       <!--Dropdown Link for Features-->
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style = "color: #D4D4D4;">
-                          Features
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Action</a></li>
-                          <li><a class="dropdown-item" href="#">Another action</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                      </li>
+
                     </ul>
                     
-                      <a class="nav-link" aria-current="page" href="login.php" style ="color:#D4D4D4">Already Have an Account? </a>
+                     
                       
                   </div>
                 </div>
@@ -78,7 +72,9 @@
                 <input input class ="form-control" type = "password" name ="confirmPwd" required>
                 <hr class = "mb-3">
 
-                <center><input class ="btn orange-btn"  type = "submit" name = "submit"></center>
+                <center>
+                <a class="nav-link" aria-current="page" href="login.php" style="color:#525252;font-size: 19px;">Already Have an Account? Click me</br></br>
+                <input class ="btn orange-btn"  type = "submit" name = "submit"></center>
                 <?php
     if(isset($_GET["error"]))
     {
