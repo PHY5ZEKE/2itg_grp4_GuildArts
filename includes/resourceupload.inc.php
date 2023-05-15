@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(isset($_POST['submit'])) {
     $typeFile = $_POST['resourceType'];
     $resourceTitle = $_POST['resourceTitle'];
@@ -36,11 +37,15 @@ if(isset($_POST['submit'])) {
                     $rowCount = mysqli_num_rows($result);
                     $orderResource = $rowCount + 1;
 
-                    $sql = "INSERT INTO resources (typeFile, resourceTitle, resourceDesc, resourceFile, orderResource) VALUES (?,?,?,?,?);";
+                    $sql = "INSERT INTO resources (userid, useruid, typeFile, resourceTitle, resourceDesc, resourceFile, orderResource) VALUES (?,?,?,?,?,?,?);";
                     if(!mysqli_stmt_prepare($stmt,$sql)) {
                         echo "SQL statement failed!";
                     } else {
-                        mysqli_stmt_bind_param($stmt,"sssss",$typeFile,$resourceTitle,$resourceDesc,$fileName,$orderResource);
+                        // Retrieve userid and useruid from session
+                        $userid = $_SESSION['userid'];
+                        $useruid = $_SESSION['useruid'];
+
+                        mysqli_stmt_bind_param($stmt,"sssssss",$userid,$useruid,$typeFile,$resourceTitle,$resourceDesc,$fileName,$orderResource);
                         mysqli_stmt_execute($stmt);
 
                         move_uploaded_file($fileTmpName,$fileDestination);

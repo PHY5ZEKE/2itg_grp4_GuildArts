@@ -69,8 +69,8 @@ $stmt->close();
     </div>
 		<div class="innerright">
 			<div>
-            <h3>username: &nbsp<?=$_SESSION['useruid']?><h3>
-            <h3>Name: &nbsp<?=$_SESSION['name']?><h3>
+            <h3>username: &nbsp<?=$_SESSION['userid']?><h3>
+            <h3>Name: &nbsp<?=$_SESSION['useruid']?><h3>
             <h3>Email: &nbsp<?=$_SESSION['email']?><h3> 
             <h3>0927-509-2022<h3>
             <h3>"this is a filler bio"<h3>

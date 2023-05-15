@@ -1,4 +1,5 @@
 <?php
+
 // Check existence of id parameter before processing further
 if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
     // Include config file
@@ -28,6 +29,7 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
                 $resourceTitle = $row["resourceTitle"];
                 $resourceDesc = $row["resourceDesc"];
                 $resourceFile = $row["resourceFile"];
+                $userid = $row["useruid"];
                 $filePath = 'uploads/resources/' . $resourceFile; // Set the file path here
             } else {
                 // URL doesn't contain a valid id parameter. Redirect to error page
@@ -88,6 +90,10 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
                     <div class="form-group">
                         <label>File</label>
                         <p><b><a href="<?php echo $filePath; ?>" download><?php echo $resourceFile; ?></a></b></p>
+                    </div>
+                    <div class="form-group">
+                        <label>Posted by:</label>
+                        <p><b><?php echo $row["useruid"]; ?></b></p>
                     </div>
 
                     <p><a href="resource.php" class="btn btn-primary">Back</a></p>
