@@ -42,9 +42,10 @@ require_once "includes\dbh.inc.php";
                         <div class="form-group">
                             <input type ="file" name ="file">
                             <button type ="submit" name ="submit">UPLOAD</button>  
+                            <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
+
+                       
                     </form>
                 </div>
             </div>
