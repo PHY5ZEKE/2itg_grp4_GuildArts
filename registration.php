@@ -16,7 +16,7 @@
                 <div class="container-fluid">
                     <!--Navbar Logo-->
                   <a class="navbar-brand" href="#">
-                    <img src="assets\Logo.png" alt="Logo" width="55" height="55">
+                  <img src="assets\Logo.png" alt="Logo" width="110" height="90" style="padding-left: 20px;">
                   </a>
                     <!--Navbar Name-->
                   <a class="navbar-brand" href="#" style = "color: #D4D4D4;">GuildArts</a>
