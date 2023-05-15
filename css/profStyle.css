@@ -6,12 +6,41 @@ body{
     background-color: #1d1d1c;
   }
 
-.innerright {
-	width: 1000px;
-	margin-right: 250px;
-	padding-left: 100px;
+
+
+
+/* The container of everything */
+.outer {
+	display: flex;
+	justify-content: center;
+	background-color: #1d1d1c;
+	border-bottom: 5px solid #fff;
+  }
+  
+  /* The container of the profile image */
+  .innerleft {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-right: 4%;
+
+  }
+
+  /* The container of the container of the image and info */
+.innerright > div {
+	margin-right: 25px 0;
+	padding: 25px;
+	background-color: #1d1d1c;
 }
-.innerright h2 {
+  /* The profile image */
+  .innerleft img {
+	position: right;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+  }
+  
+  .innerright h2 {
 	font-weight: BOLD;
 	font-size: 22px;
 	color: #A65A28;
@@ -20,36 +49,9 @@ body{
 	font-size: 15px;
 	color: #ffffff;
 }
-.innerright > p, .innerright > div {
-	margin-right: 25px 0;
-	padding: 25px;
-	background-color: #1d1d1c;
-}
-
-.outer {
-	display: flex;
-	align-items: left;
-	background-color: #1d1d1c;
-	padding: 10px;
-	border-bottom: 5px solid #fff;
-  }
-  
-  .innerleft {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-left: 750px;
-
-  }
-  
-  .innerleft img {
-	position: right;
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-  }
-  
+  /* The container of the user */
   .user-info {
+	
 	display: flex;
 	flex-direction: column;
   }
