@@ -82,39 +82,45 @@ require_once 'includes\dbh.inc.php';
               <section class="resource-links">
   <div class="resource-container">
   <?php
-            include_once 'includes/dbh.inc.php';
+include_once 'includes/dbh.inc.php';
 
-            $sql = "SELECT * FROM resources ORDER BY orderResource DESC;";
-            $stmt = mysqli_stmt_init($conn);
-            if (!mysqli_stmt_prepare($stmt, $sql)) {
-                echo "SQL statement failed!";
-            } else {
-                mysqli_stmt_execute($stmt);
-                $result = mysqli_stmt_get_result($stmt);
+$sql = "SELECT * FROM resources ORDER BY orderResource DESC;";
+$stmt = mysqli_stmt_init($conn);
+if (!mysqli_stmt_prepare($stmt, $sql)) {
+    echo "SQL statement failed!";
+} else {
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
 
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $fileName = $row["resourceFile"]; // Set the file name here
-                    $filePath = 'uploads/resources/' . $fileName; // Set the file path here
+    while ($row = mysqli_fetch_assoc($result)) {
+        $fileName = $row["resourceFile"]; // Set the file name here
+        $filePath = 'uploads/resources/' . $fileName; // Set the file path here
 
-                    echo '<div class="card text-bg-primary mb-3">
-                        <div class="card-header">
-                            <h3>' . $row["typeFile"] . '</h3>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <a href="' . $filePath . '" download="' . $fileName . '">
-                                    <h3>' . $row["resourceTitle"] . '</h3>
-                                </a>
-                            </h5>
-                            <p class="card-text">' . $row["resourceDesc"] . '</p>
-                            <h3>Posted by: <a href="profile.php?useruid=' . $row["useruid"] . '">' . $row["useruid"] . '</a></h3>
-                            <a href="readResource.php?id=' . $row['idResource'] . '" class="mr-3" title="View Resource" data-toggle="tooltip"><span class="fa fa-eye"></span></a>
-                            <a href="includes/resourcedelete.inc.php?id=' . $row['idResource'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>
-                        </div>
-                    </div>';
-                }
-            }
-            ?>
+        echo '<div class="card text-bg-primary mb-3">
+                <div class="card-header">
+                    <h3>' . $row["typeFile"] . '</h3>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="' . $filePath . '" download="' . $fileName . '">
+                            <h3>' . $row["resourceTitle"] . '</h3>
+                        </a>
+                    </h5>
+                    <p class="card-text">' . $row["resourceDesc"] . '</p>
+                    <h3>Posted by: <a href="profile.php?useruid=' . $row["useruid"] . '">' . $row["useruid"] . '</a></h3>
+                    <a href="readResource.php?id=' . $row['idResource'] . '" class="mr-3" title="View Resource" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
+        // Check if the logged-in user is the uploader
+        if (isset($_SESSION['useruid']) && $_SESSION['useruid'] === $row['useruid']) {
+            echo '
+                  <a href="includes/resourcedelete.inc.php?id=' . $row['idResource'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+        }
+
+        echo '</div>
+            </div>';
+    }
+}
+?>
+
 </div>
 
 </div>

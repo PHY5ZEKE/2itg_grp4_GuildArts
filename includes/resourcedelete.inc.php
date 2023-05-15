@@ -1,18 +1,20 @@
 <?php
 // Process delete operation after confirmation
+session_start();
 if (isset($_POST["id"]) && !empty($_POST["id"])) {
     // Include config file
     require_once "dbh.inc.php";
 
     // Prepare a delete statement
-    $sql = "DELETE FROM resources WHERE idResource = ?";
+    $sql = "DELETE FROM resources WHERE idResource = ? AND useruid = ?";
 
     if ($stmt = mysqli_prepare($conn, $sql)) {
         // Bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "i", $param_id);
+        mysqli_stmt_bind_param($stmt, "is", $param_id, $param_useruid);
 
         // Set parameters
         $param_id = trim($_POST["id"]);
+        $param_useruid = $_SESSION['useruid'];
 
         // Attempt to execute the prepared statement
         if ($stmt->execute()) {
@@ -28,7 +30,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
     $stmt->close();
 
     // Close connection
-    $mysqli->close();
+    $conn->close();
 } else {
     // Check existence of id parameter
     if (empty(trim($_GET["id"]))) {
@@ -63,7 +65,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="alert alert-danger">
                             <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>" />
-                            <p>Are you sure you want to delete this employee record?</p>
+                            <p>Are you sure you want to delete this resource?</p>
                             <p>
                                 <input type="submit" value="Yes" class="btn btn-danger">
                                 <a href="../resource.php" class="btn btn-secondary ml-2">No</a>
