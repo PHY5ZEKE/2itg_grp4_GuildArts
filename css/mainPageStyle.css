@@ -1,10 +1,13 @@
+
 html {
+	/* proper size of the website */
     margin: 0;
-    max-width: 1400px;
+    max-width: 1800px;
 	width: 95%;
 }
 
 body{
+	/* removes the horizontal scrollwheel */
 	overflow-x: hidden;
 	background-color: #1d1d1c
 }
@@ -13,11 +16,18 @@ body{
     background-color: #1d1d1c;
   }
 
-.navbar-brand{
-	padding-left: px;
-	padding-right: px;
+
+  /* fixes the spacing of the navbar */
+.navbar-logo{
+	padding-left: 2%;
 }
 
+.navbar-brand{
+	padding-left: px;
+	padding-right: 1%;
+}
+
+/* makes the content of the page centered */
 .content {
     display: flex;
 	flex-direction: column;
@@ -45,6 +55,7 @@ a{
 	color:#1d1d1c;
 }
 
+/* NAVBAR ICONS */
 .btn {
 	border: none; /* Remove borders */
 	color: #D4D4D4; /* White text */
@@ -54,9 +65,10 @@ a{
   }
 
   .btn:hover {
-	background-color: #A65A28;
+	
+	background-color: #A65A28; /* color when hovered */
   }
-
+/* the highlighted navbar icon */
   .btnNow {
 	background-color: #A65A28;
 	border: none; /* Remove borders */
@@ -70,6 +82,7 @@ a{
 	background-color: #A65A28;
   }
 
+  /* container of each post */
   .gallery-container {
 	
 	width: 100%;
@@ -83,8 +96,8 @@ a{
 	
 }
 
-
-.gallery-container a /*spaces from each other*/
+/*spaces from each other*/
+.gallery-container a 
 {
 	width: 600px;
 	background-color: #ffffff07;
@@ -97,14 +110,14 @@ a{
  align-content:center; 
 text-decoration: none;
 }
-
+/* the title of the post */
 .gallery-container a h3{
 
 	font-size:xx-large;
 	color: #A65A28;
 
 }
-
+/* the description of the post */
 .gallery-container a p{
 
 	color: #D4D4D4;
@@ -113,6 +126,7 @@ text-decoration: none;
 	display:flex;
 }
 
+/* the picture of the post */
 	.gallery-container a div{
 
 
@@ -127,11 +141,12 @@ text-decoration: none;
 	
 }
 
+/* The hover of the icons */
 .hovertext {
 	position: relative;
 	
   }
-  
+  /* This is the hovertext before hovering */
   .hovertext:before {
 	content: attr(data-hover);
 	visibility: hidden;
@@ -149,7 +164,7 @@ text-decoration: none;
 	left: 0;
 	top: 110%;
   }
-  
+  /* This what happens after hovering */
   .hovertext:hover:before {
 	opacity: 1;
 	visibility: visible;

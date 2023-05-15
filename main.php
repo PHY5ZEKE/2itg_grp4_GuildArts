@@ -37,7 +37,7 @@ if (!isset($_SESSION['loggedin'])) {
                 <div class="container-fluid">
                     <!--Navbar Logo-->
                   <a class="navbar-logo" href="#">
-                    <img src="assets\Logo.png" alt="Logo" width="55" height="55">
+                    <img src="assets\Logo.png" alt="Logo" width="85" height="85">
                   </a>
                     <!--Navbar Name-->
                   <a class="navbar-brand" href="#" style = "color: #D4D4D4;">Main Gallery</a>
