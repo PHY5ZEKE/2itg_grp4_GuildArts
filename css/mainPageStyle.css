@@ -2,8 +2,6 @@
 html {
 	/* proper size of the website */
     margin: 0;
-    max-width: 1800px;
-	width: 95%;
 }
 
 body{
@@ -14,6 +12,7 @@ body{
 /*adjusts color of navbar*/
 .navbar {
     background-color: #1d1d1c;
+	width: 95%;
   }
 
 
@@ -101,8 +100,8 @@ a{
 {
 	width: 600px;
 	background-color: #ffffff07;
-	padding-top: 60px;
- margin: 100px 0px 0;
+	padding-top: 4%;
+ margin: 7% 0px 0;
  display: flex;
  flex-direction: column;
  flex-wrap: wrap;
@@ -131,14 +130,14 @@ text-decoration: none;
 
 
 	width:500px;
-    height: 500px;
-	background-size: contain;
+    height:500px;
+
+	background-size:contain;
     background-position:center;
     background-repeat:no-repeat;
     background-repeat:cover;
-	
+	display:flex;
 
-	
 }
 
 /* The hover of the icons */

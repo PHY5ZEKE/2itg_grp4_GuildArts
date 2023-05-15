@@ -69,9 +69,9 @@ $stmt->close();
     </div>
 		<div class="innerright">
 			<div>
-            <h3>username: &nbsp<?=$_SESSION['userid']?><h3>
-            <h3>Name: &nbsp<?=$_SESSION['useruid']?><h3>
-            <h3>Email: &nbsp<?=$_SESSION['email']?><h3> 
+            <h3><?=$_SESSION['userid']?><h3>
+            <h3><?=$_SESSION['useruid']?><h3>
+            <h3><?=$_SESSION['email']?><h3> 
             <h3>0927-509-2022<h3>
             <h3>"this is a filler bio"<h3>
             <a href="profileUpdate.html" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Edit Profile</a>
