@@ -79,6 +79,7 @@ require_once 'includes\dbh.inc.php';
 
               <center><a href="uploadResource.php" class="btn btn-success"><i class="fa fa-plus"></i> Upload a Resource</a></center>
               <br>
+
               <section class="resource-links">
   <div class="resource-container">
   <?php
@@ -96,9 +97,9 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
         $fileName = $row["resourceFile"]; // Set the file name here
         $filePath = 'uploads/resources/' . $fileName; // Set the file path here
 
-        echo '<div class="card text-bg-primary mb-3">
+        echo '<div class="card">
                 <div class="card-header">
-                    <h3>' . $row["typeFile"] . '</h3>
+                    <h2>' . $row["typeFile"] . '</h2>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">
@@ -107,9 +108,9 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
                         </a>
                     </h5>
                     <p class="card-text">' . $row["resourceDesc"] . '</p>
-                    <h3>Posted by: <a href="visitProfile.php?userid=' . $row["userid"] . '&useruid=' . $row["useruid"] . '">' . $row["useruid"] . '</a></h3>
+                    <h5><a href="visitProfile.php?userid=' . $row["userid"] . '&useruid=' . $row["useruid"] . '">' . $row["useruid"] . '</a></h5>
                     <p class="card-text">Uploaded on: ' . $row["uploadDate"] . '</p>
-                    <a href="readResource.php?id=' . $row['idResource'] . '" class="mr-3" title="View Resource" data-toggle="tooltip"><span class="fa fa-eye"></span></a>'
+                   <a href="readResource.php?id=' . $row['idResource'] . '" class="mr-3" title="View Resource" data-toggle="tooltip"><span class="fa fa-eye"></span></a>'
                     ;
 
         // Check if the logged-in user is the uploader

@@ -52,19 +52,84 @@ a{
   }
 
   .resource-links {
-	display: flex;
-	justify-content: center;
+
   }
   
   .resource-container {
-	display: flex;
+	
+	display:flex;
 	flex-wrap: wrap;
-	gap: 20px;
+	flex-direction: row;
+    justify-content:space-evenly;
+    align-content:center; 
+    gap: 1rem;
+	
+
   }
   
   .card {
-	max-width: 18rem;
+
+	width: 21rem;
+	height: 100%;
+
+	
+
   }
+  .card:hover{
+	margin-top: -50px;
+	height: 110%;
+	transition: 0.4s ease-in-out;
+	transform: scale(1.1);
+  }
+
+  .card:not(hover) {
+	margin-top: 0;
+	height: 100%;
+	transition: 0.2s ease-in;
+  }
+  .card-header{
+	background-color: #1d1d1c;
+	
+  }
+  .card-header h2{
+	color: #A65A28;
+	
+  }
+
+  .card-body{
+	background-color: #393937;
+  }
+
+  .card-title{
+	color: #D4D4D4;
+  }
+  .card-title a{
+	text-decoration: none;
+  }
+
+  .card-title h3{
+	color: #D4D4D4;
+  }
+
+  .card-text{
+	color: #D4D4D4;
+  }
+  .card p{
+	color: #D4D4D4;
+  }
+  .card h3{
+	color: #D4D4D4;
+  }
+  .card h5 a{
+	text-decoration: none;
+  }
+  .card a{
+	color: #D4D4D4;
+  }
+  h3 a{
+	text-decoration: none;
+  }
+
 
 .hovertext {
 	position: relative;

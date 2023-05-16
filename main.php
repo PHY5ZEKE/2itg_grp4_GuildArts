@@ -111,7 +111,12 @@ if (!isset($_SESSION['loggedin'])) {
             </a>
             <p>Posted by: <a href="visitProfile.php?userid=' . $row["userid"] . '&useruid=' . $row["useruid"] . '">' . $row["useruid"] . '</a></p>
             <p>Uploaded On '.$row["created_at"].'</p>
-            <a href="includes\galleryread.inc.php?id=' . $row['id'] . '" class="btn btn-primary" title="View Resource" data-toggle="tooltip">View Post</a>
+            
+            <a href="includes\galleryread.inc.php?id=' . $row['id'] . '">
+            <button class="btn">
+              <i class="fi fi-br-user" href="profile.php"></i>
+            </button>
+          </a>
             ';
             
           }
