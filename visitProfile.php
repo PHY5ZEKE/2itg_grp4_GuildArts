@@ -83,7 +83,7 @@ if (isset($_GET['userid']) && isset($_GET['useruid'])) {
             <h3>Name: '.$name.'<h3>
             <h3>Username: '.$username.'</p>
             <h3>Email: '. $email.'</p>
-            <h3>"this is a filler bio"<h3>
+            <h3>Bio<h3>
             <a href="profileUpdate.html" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Edit Profile</a>
             </div>
 </div>';
