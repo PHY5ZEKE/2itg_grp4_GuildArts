@@ -30,9 +30,9 @@
                   <div class="collapse navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                       <li class="nav-item">
-                        <a class="nav-link" href="#" style = "color: #D4D4D4;font-family: 'Source Sans Pro', sans-serif; font-size: 20px; padding-right: 15px;">About</a>
-                      </li>
                       <a class="nav-link" href="index.html" style = "color: #D4D4D4;font-family: 'Source Sans Pro', sans-serif; font-size: 20px; padding-right: 15px;">Home</a>
+                      </li>
+                      <a class="nav-link" href="#" style = "color: #D4D4D4;font-family: 'Source Sans Pro', sans-serif; font-size: 20px; padding-right: 15px;">About</a>
                       <!--Dropdown Link for Features-->
                     </ul>
                     
