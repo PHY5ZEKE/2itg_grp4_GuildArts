@@ -107,10 +107,11 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
                         </a>
                     </h5>
                     <p class="card-text">' . $row["resourceDesc"] . '</p>
-                    <h3>Posted by: <a href="profile.php?useruid=' . $row["useruid"] . '">' . $row["useruid"] . '</a></h3>
+                    <h3>Posted by: <a href="visitProfile.php?userid=' . $row["userid"] . '&useruid=' . $row["useruid"] . '">' . $row["useruid"] . '</a></h3>
                     <a href="readResource.php?id=' . $row['idResource'] . '" class="mr-3" title="View Resource" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
+
         // Check if the logged-in user is the uploader
-        if (isset($_SESSION['useruid']) && $_SESSION['useruid'] === $row['useruid']) {
+        if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
             echo '
                   <a href="includes/resourcedelete.inc.php?id=' . $row['idResource'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
         }
@@ -120,6 +121,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     }
 }
 ?>
+
 
 </div>
 

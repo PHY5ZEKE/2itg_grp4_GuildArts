@@ -95,6 +95,7 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
                         <label>Posted by:</label>
                         <p><b><?php echo $row["useruid"]; ?></b></p>
                     </div>
+                    
 
                     <p><a href="resource.php" class="btn btn-primary">Back</a></p>
                 </div>

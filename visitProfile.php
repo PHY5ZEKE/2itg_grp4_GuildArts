@@ -1,27 +1,37 @@
 <?php
-// We need to use sessions, so you should always start sessions using the below code.
-session_start();
-// If the user is not logged in redirect to the login page...
-if (!isset($_SESSION['loggedin'])) {
-	header('Location: index.html');
-	exit;
+include_once 'includes/dbh.inc.php';
+
+if (isset($_GET['userid']) && isset($_GET['useruid'])) {
+    $selectedUserID = $_GET['userid'];
+    $selectedUserUID = $_GET['useruid'];
+
+    // Query the database to retrieve the selected user's information
+    $sql = "SELECT * FROM users WHERE usersId = '$selectedUserID' AND usersUid = '$selectedUserUID'";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+        if (mysqli_num_rows($result) > 0) {
+            // User found, display their information
+            $row = mysqli_fetch_assoc($result);
+            $name = $row['usersName'];
+            $username = $row['usersUid'];
+            $email = $row['usersEmail'];
+            // ... Retrieve other relevant user information
+        } else {
+            // User not found, display an error message or handle the scenario when the user is not found
+            echo "<h2>Error</h2>";
+            echo "<p>User not found.</p>";
+        }
+    } else {
+        // Handle the scenario when the database query fails
+        echo "<h2>Error</h2>";
+        echo "<p>Database query failed.</p>";
+    }
+} else {
+    // Handle the scenario when the required parameters are not provided
+    echo "<h2>Error</h2>";
+    echo "<p>Invalid request.</p>";
 }
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = '';
-$DATABASE_NAME = 'guildarts';
-$conn = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-if (mysqli_connect_errno()) {
-	exit('Failed to connect to MySQL: ' . mysqli_connect_error());
-}
-// We don't have the password or email info stored in sessions, so instead, we can get the results from the database.
-$stmt = $conn->prepare('SELECT usersPwd, usersEmail FROM users WHERE usersId = ?');
-// In this case we can use the account ID to get the account info.
-$stmt->bind_param('i', $_SESSION['usersId']);
-$stmt->execute();
-$stmt->bind_result($usersPwd, $usersEmail);
-$stmt->fetch();
-$stmt->close();
 ?>
 
 <!DOCTYPE html>
@@ -67,15 +77,17 @@ $stmt->close();
         <div class="innerleft">
         <img src="uploads\default.jpg">
     </div>
-		<div class="innerright">
-			<div>
-            <h3><?=$_SESSION['userid']?><h3>
-            <h3><?=$_SESSION['useruid']?><h3>
-            <h3><?=$_SESSION['email']?><h3> 
+    <?php
+		echo'<div class="innerright">
+		<div>
+            <h3>Name: '.$name.'<h3>
+            <h3>Username: '.$username.'</p>
+            <h3>Email: '. $email.'</p>
             <h3>"this is a filler bio"<h3>
             <a href="profileUpdate.html" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Edit Profile</a>
             </div>
-</div>
+</div>';
+?>
 </div>
   
 
@@ -84,4 +96,3 @@ $stmt->close();
 
 	</body>
 </html>
-
