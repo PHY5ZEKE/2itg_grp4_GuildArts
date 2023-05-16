@@ -95,8 +95,15 @@ a{
 	
 }
 
+/* .gallery-separator{
+display: flex;
+flex-direction: column;
+align-content: center;
+justify-content: center;
+} */
+
 /*spaces from each other*/
-.gallery-container a 
+.gallery-container  
 {
 	width: 600px;
 	background-color: #ffffff07;
@@ -110,14 +117,14 @@ a{
 text-decoration: none;
 }
 /* the title of the post */
-.gallery-container a h3{
+.gallery-container h3{
 
 	font-size:xx-large;
 	color: #A65A28;
 
 }
 /* the description of the post */
-.gallery-container a p{
+.gallery-container p{
 
 	color: #D4D4D4;
 	font-size:large;
@@ -126,7 +133,7 @@ text-decoration: none;
 }
 
 /* the picture of the post */
-	.gallery-container a div{
+	.gallery-container div{
 
 
 	width:500px;
@@ -139,7 +146,14 @@ text-decoration: none;
 	display:flex;
 
 }
-
+hr{
+	height: 5px;
+	width: 10px;
+	color: #a65a2898;
+}
+p, p a{
+	color:white
+}
 /* The hover of the icons */
 .hovertext {
 	position: relative;

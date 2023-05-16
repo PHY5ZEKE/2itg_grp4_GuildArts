@@ -101,19 +101,26 @@ if (!isset($_SESSION['loggedin'])) {
           {
             
             echo'
-            <a href ="#" class ="gallery-container">
+            
+            <a href ="#">
+            <hr><hr><hr><hr><hr><hr>
             <div style = "background-image: url(uploads/gallery/'.$row["imgFullNameGallery"].'); "></div>
             <h3>'.$row["titleGallery"].'</h3>
             <p>'.$row["descGallery"].'</p>
+            
+            </a>
             <p>Posted by: <a href="visitProfile.php?userid=' . $row["userid"] . '&useruid=' . $row["useruid"] . '">' . $row["useruid"] . '</a></p>
-            </a>';
+            
+            ';
+            
           }
         }
         ?>
 
+</div>
   </section>
-
   </div>
-		</div>
+  
+		
 	</body>
 </html>
