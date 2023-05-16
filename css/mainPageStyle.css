@@ -146,11 +146,12 @@ text-decoration: none;
 	display:flex;
 
 }
-hr{
-	height: 5px;
-	width: 10px;
-	color: #a65a2898;
-}
+hr {
+	border: none;
+	height: 4px; /* Adjust the height as needed */
+	background-color: #f05902; /* Adjust the color as needed */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Adjust the shadow properties as needed */
+  }
 p, p a{
 	color:white
 }

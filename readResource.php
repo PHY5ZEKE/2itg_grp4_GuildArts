@@ -102,6 +102,10 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
                         <label>Posted by:</label>
                         <p><b><?php echo $row["useruid"]; ?></b></p>
                      </div>
+                     <div class="form-group">
+                        <label>Uploaded on:</label>
+                        <p><b><?php echo $row["uploadDate"]; ?></b></p>
+                     </div>
                      <?php
                 if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
                     echo '
