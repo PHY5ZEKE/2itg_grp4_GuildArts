@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Check existence of id parameter before processing further
 if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
     // Include config file
@@ -60,6 +60,13 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
 <head>
     <meta charset="UTF-8">
     <title>View Record</title>
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .wrapper {
@@ -94,14 +101,19 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
                     <div class="form-group">
                         <label>Posted by:</label>
                         <p><b><?php echo $row["useruid"]; ?></b></p>
-                    </div>
-                    
-
-                    <p><a href="resource.php" class="btn btn-primary">Back</a></p>
-                </div>
+                     </div>
+                     <?php
+                if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
+                    echo '
+                          <a href="includes/resourcedelete.inc.php?id=' . $row['idResource'] . '" title="Delete Record" data-toggle="tooltip" class="btn btn-danger">Delete</a>
+                          ';
+                }
+                ?>
+                
+                <p><a href="resource.php" class="btn btn-primary">Back</a></p>
             </div>
         </div>
     </div>
+</div>
 </body>
-
 </html>

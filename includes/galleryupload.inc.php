@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if(isset($_POST['submit']))
 {
     $newFileName = $_POST['filename'];
@@ -33,7 +33,7 @@ if(isset($_POST['submit']))
         {
             if($fileSize < 2000000000)
             {
-                $imageFullName = $newFilename . "." . uniqid("",true). "." .$fileActualExt;
+                $imageFullName = $newFileName . "." . uniqid("",true). "." .$fileActualExt;
                 $fileDestination = "../uploads/gallery/".$imageFullName;
 
                 include_once "dbh.inc.php";
@@ -45,7 +45,11 @@ if(isset($_POST['submit']))
                 }
                 else
                 {
-                    $sql = "SELECT * FROM gallery;";
+                    // Retrieve userid and useruid from session
+                    $userid = $_SESSION['userid'];
+                    $useruid = $_SESSION['useruid'];
+
+                    $sql = "SELECT MAX(orderGallery) AS maxOrder FROM gallery;";
                     $stmt = mysqli_stmt_init($conn);
                     if(!mysqli_stmt_prepare($stmt,$sql))
                     {
@@ -55,28 +59,27 @@ if(isset($_POST['submit']))
                     {
                         mysqli_stmt_execute($stmt);
                         $result = mysqli_stmt_get_result($stmt);
-                        $rowCount = mysqli_num_rows($result);
-                        $setImageOrder = $rowCount+1;
+                        $row = mysqli_fetch_assoc($result);
+                        $maxOrder = $row['maxOrder'];
+                        $setImageOrder = $maxOrder + 1;
 
-                        $sql = "INSERT INTO gallery (titleGallery, descGallery, imgFullNameGallery, orderGallery) VALUES (?,?,?,?);";
+                        $sql = "INSERT INTO gallery (userid, useruid, titleGallery, descGallery, imgFullNameGallery, orderGallery) VALUES (?, ?, ?, ?, ?, ?);";
+                        $stmt = mysqli_stmt_init($conn);
                         if(!mysqli_stmt_prepare($stmt,$sql))
-                         {
-                        echo "SQL statement failed!";
+                        {
+                            echo "SQL statement failed";
                         }
                         else
                         {
-                            mysqli_stmt_bind_param($stmt,"ssss",$imageTitle,$imageDesc,$imageFullName,$setImageOrder);
+                            mysqli_stmt_bind_param($stmt,"ssssss",$userid,$useruid,$imageTitle,$imageDesc,$imageFullName,$setImageOrder);
                             mysqli_stmt_execute($stmt);
 
                             move_uploaded_file($fileTempName,$fileDestination);
 
                             header("Location:../main.php?upload=success");
-
                         }
                     }
                 }
-
-                move_uploaded_file($fileTmpName,$fileDestination);
             }
             else
             {
@@ -95,5 +98,4 @@ if(isset($_POST['submit']))
         echo "You cannot upload files of this type";
         exit();
     }
-
 }

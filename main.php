@@ -105,6 +105,7 @@ if (!isset($_SESSION['loggedin'])) {
             <div style = "background-image: url(uploads/gallery/'.$row["imgFullNameGallery"].'); "></div>
             <h3>'.$row["titleGallery"].'</h3>
             <p>'.$row["descGallery"].'</p>
+            <p>Uploaded by: ' . $row["useruid"] . '</p>
             </a>';
           }
         }
