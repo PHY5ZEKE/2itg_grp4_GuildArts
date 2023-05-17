@@ -38,12 +38,16 @@ body
 
 }
 /*adjusts the heading*/
-.left-align 
+.title 
 {
     position: relative;
     font-size: 120px;
     margin-left: 40px;
     color: #A65A28;
+    font-weight: bolder;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif; 
+    letter-spacing: 3px;
 }
 /*modifies the subheading*/
 .subheading
