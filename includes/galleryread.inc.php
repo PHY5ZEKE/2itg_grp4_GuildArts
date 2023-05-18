@@ -1,5 +1,8 @@
 <?php
 session_start();
+include_once 'dbh.inc.php';
+$postId = $_GET['id'];
+
 // Check existence of id parameter before processing further
 if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
     // Include config file
@@ -28,12 +31,16 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
                 $userid = $row["userid"];
                 $useruid = $row["useruid"];
                 $titleGallery = $row["titleGallery"];
+                $postid = $row["id"];
                 $descGallery = $row["descGallery"];
                 $imgFullNameGallery = $row["imgFullNameGallery"];
                 $filePath = 'uploads/gallery/' . $imgFullNameGallery; // Set the file path here
+                //session variables
+               
+                $_SESSION["postid"] = $postid;
             } else {
                 // URL doesn't contain a valid id parameter. Redirect to error page
-                header("location: error.php");
+                header("location: galleryread.inc.php.");
                 exit();
             }
         } else {
@@ -44,8 +51,7 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
     // Close statement
     mysqli_stmt_close($stmt);
 
-    // Close connection
-    mysqli_close($conn);
+    
 } else {
     // URL doesn't contain id parameter. Redirect to error page
     header("location: error.php");
@@ -105,6 +111,11 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
                         <label>Uploaded on:</label>
                         <p><b><?php echo $row["created_at"]; ?></b></p>
                     </div>
+                    <div class="form-group">
+                        <label>Post ID:</label>
+                        <p></p>
+                        <p><b><?php echo $row["id"]; ?></b></p>
+                    </div>
 
                     <?php
                       if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
@@ -126,78 +137,84 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
     </div>
     <hr>
   </div>
+  <?php
+                include_once 'dbh.inc.php';
 
-  <div class="middle-section">
-    <div class="comment-box">
-      <div class="card comment">
-        <div class="card-body comment-content">
-          This is the first comment.
-        </div>
-      </div>
-      <div class="card comment">
-        <div class="card-body comment-content">
-          This is another comment.
-        </div>
-      </div>
-      <div class="card comment">
-        <div class="card-body comment-content">
-          This is another comment.
-        </div>
-      </div>
-      <!-- Add more comments here -->
-    </div>
-  </div>
+                $sql = "SELECT * FROM comments WHERE postid = ? ORDER BY orderComment ASC;";
+                $stmt = mysqli_stmt_init($conn);
+                if (!mysqli_stmt_prepare($stmt, $sql)) {
+                    echo "SQL statement failed!";
+                } else {
+                    // Bind the post ID as a parameter
+                    mysqli_stmt_bind_param($stmt, "i", $postid);
+                    mysqli_stmt_execute($stmt);
+                    $result = mysqli_stmt_get_result($stmt);
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+
+                        echo '
+
+            <div class="middle-section">
+                <div class="comment-box">
+                    <div class="card comment">
+                        <div class="card-body comment-content">
+                            ' . $row["comment"] .'
+                        </div>
+                        
+                     </div> Posted by: '. $row["useruid"].' at '. $row["created_at"].'
+                     </div>
+                     </div>'
+                        ;
+                    }
+                }
+
+
+                ?>
+
+                
 
   <div class="bottom-section">
     <div class="comment-input-container">
-      <textarea id="comment-input" class="comment-input" placeholder="Add a comment..."></textarea>
-      <button id="submit-comment" class="comment-submit">Submit</button>
+        <form id="comment-form" method="POST">
+            <textarea id="comment-input" class="comment-input" placeholder="Add a comment..." name="comment"></textarea>
+            <button type="submit" id="submit-comment" class="comment-submit">Submit</button>
+        </form>
     </div>
-  </div>
+</div>
 </div>
 
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    const commentInput = document.getElementById("comment-input");
-                    const submitButton = document.getElementById("submit-comment");
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const commentForm = document.getElementById("comment-form");
 
-                    // Function to handle comment submission
-                    function submitComment() {
-                        const commentText = commentInput.value.trim();
-                        if (commentText !== "") {
-                            createComment(commentText);
-                            commentInput.value = "";
-                        }
-                    }
+        // Function to handle form submission
+        function submitComment(event) {
+            event.preventDefault(); // Prevent the form from being submitted normally
 
-                    // Function to create a new comment element
-                    function createComment(commentText) {
-                        const commentElement = document.createElement("div");
-                        commentElement.classList.add("comment");
-                        const commentContent = document.createElement("div");
-                        commentContent.classList.add("comment-content");
-                        commentContent.textContent = commentText;
-                        commentElement.appendChild(commentContent);
-                        document.querySelector(".comment-box").insertBefore(commentElement, commentInputContainer);
-                    }
+            const commentText = document.getElementById("comment-input").value.trim();
+            if (commentText !== "") {
+                commentForm.action = "gallerycomments.inc.php"; // Set the action URL
+                commentForm.submit(); // Submit the form
+            }
+        }
 
-                    // Submit comment on Enter key press
-                    commentInput.addEventListener("keydown", function (event) {
-                        if (event.key === "Enter" && !event.shiftKey) {
-                            event.preventDefault();
-                            submitComment();
-                        }
-                    });
+        // Submit comment on Enter key press
+        commentForm.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault();
+                submitComment(event);
+            }
+        });
 
-                    // Submit comment on button click
-                    submitButton.addEventListener("click", function (event) {
-                        event.preventDefault();
-                        submitComment();
-                    });
-                });
-            </script>
-        </div>
-    </div>
+        // Submit comment on form submit (button click)
+        commentForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            submitComment(event);
+        });
+    });
+</script>
+</div>
+</div>
 </div>
 </body>
 </html>
