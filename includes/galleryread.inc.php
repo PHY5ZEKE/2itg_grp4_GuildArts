@@ -59,38 +59,33 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
 
 <head>
     <meta charset="UTF-8">
-    <title>View Record</title>
-    <!--Icons-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css'>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .wrapper {
-            width: 600px;
-            margin: 0 auto;
+    <title>View Record</title>  
+    <!--CSS-->
+    <link href="..\css\galleryreadStyle.css" rel="stylesheet">
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+         <!--Image Appearance-->
+        <style>
+        .image-container {
+            background-image: url(<?php echo '../uploads/gallery/'.$row["imgFullNameGallery"]; ?>);
+            background-size: contain;
+        background-repeat: no-repeat; /* Prevent image from repeating */
+            background-position: center;
+            width: 100%;
+            height: 500px; /* Adjust the height as needed */
         }
     </style>
-    <style>
-    .image-container {
-        background-image: url(<?php echo '../uploads/gallery/'.$row["imgFullNameGallery"]; ?>);
-        background-size: cover;
-        background-position: center;
-        width: 100%;
-        height: 300px; /* Adjust the height as needed */
-    }
-</style>
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="mt-5 mb-3">View Post</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 separator-line">
+                <div class="wrapper">
+                    <h1 class="mt-5 mb-3"></h1>
                     <div class="form-group">
                         <label>Title</label>
                         <p><b><?php echo $row["titleGallery"]; ?></b></p>
@@ -103,20 +98,96 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
                         <p><b><?php echo $row["descGallery"]; ?></b></p>
                     </div>
                     <div class="form-group">
-                        <label>Posted by:</label>
-                        <p><b><?php echo $row["useruid"]; ?></b></p>
-                     </div>
-                     <div class="form-group">
+                    <label>Posted by:</label>
+                    <p><b><?php echo $row["useruid"]; ?></b></p>
+                    </div>
+                    <div class="form-group">
                         <label>Uploaded on:</label>
                         <p><b><?php echo $row["created_at"]; ?></b></p>
-                     </div>
-                     
-                
-                <p><a href="../main.php" class="btn btn-primary">Back</a></p>
+                    </div>
+
+                    <p><a href="../main.php" class="btn btn-primary">Back</a></p>
             </div>
+        </div>
+        <div class="col-lg-6">
+  <div class="upper-section">
+    <div class="creator-name">
+      <p><b>Comments</b></p>
+    </div>
+    <hr>
+  </div>
+
+  <div class="middle-section">
+    <div class="comment-box">
+      <div class="card comment">
+        <div class="card-body comment-content">
+          This is the first comment.
+        </div>
+      </div>
+      <div class="card comment">
+        <div class="card-body comment-content">
+          This is another comment.
+        </div>
+      </div>
+      <div class="card comment">
+        <div class="card-body comment-content">
+          This is another comment.
+        </div>
+      </div>
+      <!-- Add more comments here -->
+    </div>
+  </div>
+
+  <div class="bottom-section">
+    <div class="comment-input-container">
+      <textarea id="comment-input" class="comment-input" placeholder="Add a comment..."></textarea>
+      <button id="submit-comment" class="comment-submit">Submit</button>
+    </div>
+  </div>
+</div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const commentInput = document.getElementById("comment-input");
+                    const submitButton = document.getElementById("submit-comment");
+
+                    // Function to handle comment submission
+                    function submitComment() {
+                        const commentText = commentInput.value.trim();
+                        if (commentText !== "") {
+                            createComment(commentText);
+                            commentInput.value = "";
+                        }
+                    }
+
+                    // Function to create a new comment element
+                    function createComment(commentText) {
+                        const commentElement = document.createElement("div");
+                        commentElement.classList.add("comment");
+                        const commentContent = document.createElement("div");
+                        commentContent.classList.add("comment-content");
+                        commentContent.textContent = commentText;
+                        commentElement.appendChild(commentContent);
+                        document.querySelector(".comment-box").insertBefore(commentElement, commentInputContainer);
+                    }
+
+                    // Submit comment on Enter key press
+                    commentInput.addEventListener("keydown", function (event) {
+                        if (event.key === "Enter" && !event.shiftKey) {
+                            event.preventDefault();
+                            submitComment();
+                        }
+                    });
+
+                    // Submit comment on button click
+                    submitButton.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        submitComment();
+                    });
+                });
+            </script>
         </div>
     </div>
 </div>
 </body>
-
 </html>

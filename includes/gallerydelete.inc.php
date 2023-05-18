@@ -6,7 +6,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
     require_once "dbh.inc.php";
 
     // Prepare a delete statement
-    $sql = "DELETE FROM resources WHERE idResource = ? AND useruid = ?";
+    $sql = "DELETE FROM gallery WHERE id = ? AND useruid = ?";
 
     if ($stmt = mysqli_prepare($conn, $sql)) {
         // Bind variables to the prepared statement as parameters
@@ -19,7 +19,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
         // Attempt to execute the prepared statement
         if ($stmt->execute()) {
             // Records deleted successfully. Redirect to landing page
-            header("location: ../resource.php");
+            header("location: ../main.php");
             exit();
         } else {
             echo "Oops! Something went wrong. Please try again later.";
@@ -46,7 +46,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Delete Record</title>
+    <title>Delete Post</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .wrapper {
@@ -61,14 +61,14 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="mt-5 mb-3">Delete Record</h2>
+                    <h2 class="mt-5 mb-3">Delete Post</h2>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="alert alert-danger">
                             <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>" />
                             <p>Are you sure you want to delete this resource?</p>
                             <p>
                                 <input type="submit" value="Yes" class="btn btn-danger">
-                                <a href="../resource.php" class="btn btn-secondary ml-2">No</a>
+                                <a href="../main.php" class="btn btn-secondary ml-2">No</a>
                             </p>
                         </div>
                     </form>

@@ -75,7 +75,7 @@ if (!isset($_SESSION['loggedin'])) {
                   </div>
                 </div>
               </nav>
-              <a href="uploadGallery.php" class="btn btn-success"><i class="fa fa-plus"></i> Upload a Post</a>
+              <center><a href="uploadGallery.php" class="btn btn-success"><i class="fa fa-plus"></i> Upload a Post</a></center>
 		<div class="content">
       
       
@@ -111,6 +111,8 @@ if (!isset($_SESSION['loggedin'])) {
             </a>
             <p>Posted by: <a href="visitProfile.php?userid=' . $row["userid"] . '&useruid=' . $row["useruid"] . '">' . $row["useruid"] . '</a></p>
             <p>Uploaded On '.$row["created_at"].'</p>
+
+            
             
             <a href="includes\galleryread.inc.php?id=' . $row['id'] . '">
             <button class="btn">
@@ -118,7 +120,10 @@ if (!isset($_SESSION['loggedin'])) {
             </button>
           </a>
             ';
-            
+            if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
+              echo '
+                    <a href="includes/gallerydelete.inc.php?id=' . $row['id'] . '" title="Delete Record" data-toggle="tooltip" class="btn btn-danger">Delete Post</span></a>';
+          }
           }
         }
         ?>
