@@ -7,7 +7,11 @@ html {
 body{
 	/* removes the horizontal scrollwheel */
 	overflow-x: hidden;
-	background-color: #1d1d1c
+
+	background-image: linear-gradient(to bottom, rgba(29, 29, 28, 9) 12%, rgba(0, 0, 0, 0) 55%), url("1253046.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 /*adjusts color of navbar*/
 .navbar {
@@ -22,7 +26,7 @@ body{
 }
 
 .navbar-brand{
-	padding-left: px;
+	padding-left: 12px;
 	padding-right: 1%;
 }
 
@@ -186,7 +190,7 @@ iframe{
 
 .title{
 	position: relative;
-    font-size: 120px;
+    font-size: 80px;
     margin-left: 40px;
     color: #A65A28;
     font-weight: bolder;
@@ -196,7 +200,7 @@ iframe{
 }
 
 .subtext{
-	font-size: 30px;
+	font-size: 20px;
     color:#D4D4D4;
     padding-left: 25px;
 	padding-right: 25px;

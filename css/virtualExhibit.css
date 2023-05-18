@@ -7,7 +7,10 @@ html {
 body{
 	/* removes the horizontal scrollwheel */
 	overflow-x: hidden;
-	background-color: #1d1d1c
+	background-image: linear-gradient(to bottom, rgba(29, 29, 28, 9) 10%, rgba(0, 0, 0, 0) 90%), url("840561.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 /*adjusts color of navbar*/
 .navbar {
@@ -48,7 +51,7 @@ body{
 }
 
 a{
-	color:rgb(29, 29, 28);
+	color:#1d1d1c;
 }
 
 /* NAVBAR ICONS */
@@ -136,10 +139,9 @@ iframe{
 
 .title{
 	position: relative;
-    font-size: 120px;
+    font-size: 80px;
     margin-left: 40px;
     color: #A65A28;
-
     font-weight: bolder;
     font-family: 'Montserrat', sans-serif;
     font-family: 'Source Sans Pro', sans-serif; 
@@ -147,9 +149,9 @@ iframe{
 }
 
 .subtext{
-	font-size: 30px;
+	font-size: 20px;
     color:#D4D4D4;
-    
+    padding-left: 25px;
 	padding-right: 25px;
 
 }
@@ -262,7 +264,7 @@ iframe{
   }
 
   .owl-carousel .item img {
-    opacity: .6; /* Adjust the opacity as desired */
+    opacity: .8; /* Adjust the opacity as desired */
     transition: opacity 0.3s ease-in-out;
   }
 
