@@ -158,28 +158,95 @@ p, p a{
 /* The hover of the icons */
 .hovertext {
 	position: relative;
-	
   }
-  /* This is the hovertext before hovering */
+  
   .hovertext:before {
 	content: attr(data-hover);
 	visibility: hidden;
 	opacity: 0;
 	width: 140px;
-	background-color: black;
+	background-color: #000;
 	color: #fff;
 	text-align: center;
 	border-radius: 5px;
-	padding: 5px 0;
-	transition: opacity 1s ease-in-out;
-  
+	padding: 5px;
+	transition: opacity 0.3s ease-in-out;
+	
 	position: absolute;
 	z-index: 1;
-	left: 0;
-	top: 110%;
+	left: 50%;
+	transform: translateX(-50%);
+	top: calc(100% + 10px);
   }
-  /* This what happens after hovering */
+  
   .hovertext:hover:before {
 	opacity: 1;
 	visibility: visible;
   }
+
+  .buttonPost {
+	font-family: inherit;
+	font-size: 18px;
+	background: linear-gradient(to bottom, #A65A28 0%, #c0703b 100%); /* Orange gradient */
+	color: white;
+	padding: 0.8em 1.2em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	border-radius: 25px;	
+	transition: all 0.3s;
+  }
+  
+  .buttonPost:hover {
+	transform: translateY(-3px);
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .buttonPost:active {
+	transform: scale(0.95);
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .buttonPost span {
+	display: block;
+	margin-left: 0.4em;
+	transition: all 0.3s;
+  }
+  
+  .buttonPost svg {
+	width: 18px;
+	height: 18px;
+	fill: white;
+	transition: all 0.3s;
+  }
+  
+  .buttonPost .svg-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.2);
+	margin-right: 0.5em;
+	transition: all 0.3s;
+  }
+  
+  .buttonPost:hover .svg-wrapper {
+	background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .buttonPost:hover svg {
+	transform: rotate(45deg);
+  }
+
+  a{
+	text-decoration: none;
+	font-family: 'Montserrat', sans-serif;
+	font-weight:bolder;
+	
+  }
+  
+  
+  
