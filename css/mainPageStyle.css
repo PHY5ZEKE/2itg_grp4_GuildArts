@@ -165,7 +165,7 @@ p, p a{
 	visibility: hidden;
 	opacity: 0;
 	width: 140px;
-	background-color: #000;
+	background-color: #111111;
 	color: #fff;
 	text-align: center;
 	border-radius: 5px;
@@ -180,7 +180,7 @@ p, p a{
   }
   
   .hovertext:hover:before {
-	opacity: 1;
+	opacity: .7;
 	visibility: visible;
   }
 

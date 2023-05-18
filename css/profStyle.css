@@ -81,11 +81,45 @@ body{
 	cursor: pointer; /* Mouse pointer on hover */
   }
 
+  a, .navbar-brand{
+	text-decoration: none;
+	font-family: 'Montserrat', sans-serif;
+	font-weight:bolder;
+	
+  }
+
   .btnNow:hover {
 	background-color: #A65A28;
   }
 
+  /* The hover of the icons */
+.hovertext {
+	position: relative;
+  }
   
+  .hovertext:before {
+	content: attr(data-hover);
+	visibility: hidden;
+	opacity: 0;
+	width: 140px;
+	background-color: #111111;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	padding: 5px;
+	transition: opacity 0.3s ease-in-out;
+	
+	position: absolute;
+	z-index: 1;
+	left: 50%;
+	transform: translateX(-50%);
+	top: calc(100% + 10px);
+  }
+  
+  .hovertext:hover:before {
+	opacity: .7;
+	visibility: visible;
+  }
 
 
 

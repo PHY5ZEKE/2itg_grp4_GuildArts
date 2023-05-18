@@ -50,15 +50,36 @@ $stmt->close();
                     <img src="assets\Logo.png" alt="Logo" width="55" height="55">
                   </a>
                     <!--Navbar Name-->
-                    <a class="navbar-brand" href="#" style = "color: #D4D4D4;">Profile</a>
-                  <a href="main.php"><button class="btn"><i class="fi fi-ss-house-chimney"></i></button></a>
-                  <button class="btn"><i class="fi fi-rs-ballot"></i></button>
-                  <button class="btn"><i class="fi fi-rr-books"></i></button>
+                    <a class="navbar-brand" href="#" style = "color: #D4D4D4; opacity:.75">Profile</a>
+                  <!--Home-->
+                  <span class="hovertext" data-hover="Home">
+                    <a href="main.php"><button class="btn"><i class="fi fi-ss-house-chimney"></i></button></a>
+                    </span>
+                    <!--Online Workshops-->
+                    <span class="hovertext" data-hover="Online Workshops">
+                    <a href="workshop.html"> <button class="btn"><i class="fi fi-rs-ballot"></i></button></a>
+                  </span>
+                    <!--Resource Library-->
+                    <span class="hovertext" data-hover="Resource Library">
+                    <a href="resource.php"><button class="btn"><i class="fi fi-rr-books"></i></button></a>
+                  </span>
+                    <!--Art Marketplace-->
+                    <span class="hovertext" data-hover="Art Marketplace">
                   <button class="btn"><i class="fi fi-rs-shop"></i></button>
-                  <button class="btn"><i class="fi fi-br-eye"></i></button>
-                  </button>
-                  <a href="profile.php"><button class="btnNow"><i class="fi fi-br-user" href="profile.php"></i></button></a>
-                  <a href="includes\logout.inc.php"><button class="btn"><i class="fi fi-bs-sign-out-alt"></i></button></a>
+                  </span>
+                    <!--Virtual Exhibit-->
+                    <span class="hovertext" data-hover="Virtual Exhibit">
+                    <a href="virtualExhibit.html"><button class="btn"><i class="fi fi-br-eye"></i></button></a>
+                  </span>
+                  <!--Profile-->
+                  <span class="hovertext" data-hover="Profile">
+                  <a href="profile.php"><button class="btn">
+                    <i class="fi fi-br-user" href="profile.php" style = "color: #A65A28;"></i></button></a>
+                    </span>
+                  <!--Logout-->
+                    <span class="hovertext" data-hover="Logout">
+                  <a href="includes\logout.inc.php"><button class="btn">
+                    <i class="fi fi-bs-sign-out-alt"></i></button></a>
                   </div>
                 </div>
               </nav>

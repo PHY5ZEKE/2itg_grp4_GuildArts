@@ -41,11 +41,11 @@ if (!isset($_SESSION['loggedin'])) {
                     <img src="assets\Logo.png" alt="Logo" width="85" height="85">
                   </a>
                     <!--Navbar Name-->
-                  <a class="navbar-brand" href="#" style = "color: #D4D4D4;">Main Gallery</a>
+                  <a class="navbar-brand" href="#" style = "color: #D4D4D4; opacity:.75">Main Gallery</a>
 
                   <!--Home-->
                   <span class="hovertext" data-hover="Home">
-                    <a href="main.php"><button class="btnNow"><i class="fi fi-ss-house-chimney"></i></button></a>
+                    <a href="main.php"><button class="btn"><i class="fi fi-ss-house-chimney" style = "color: #A65A28;"></i></button></a>
                     </span>
                     <!--Online Workshops-->
                     <span class="hovertext" data-hover="Online Workshops">
@@ -61,7 +61,7 @@ if (!isset($_SESSION['loggedin'])) {
                   </span>
                     <!--Virtual Exhibit-->
                     <span class="hovertext" data-hover="Virtual Exhibit">
-                  <button class="btn"><i class="fi fi-br-eye"></i></button>
+                    <a href="virtualExhibit.html"><button class="btn"><i class="fi fi-br-eye"></i></button></a>
                   </span>
                   <!--Profile-->
                   <span class="hovertext" data-hover="Profile">

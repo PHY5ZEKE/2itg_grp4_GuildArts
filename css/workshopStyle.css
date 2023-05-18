@@ -140,29 +140,29 @@ text-decoration: none;
 /* The hover of the icons */
 .hovertext {
 	position: relative;
-	
   }
-  /* This is the hovertext before hovering */
+  
   .hovertext:before {
 	content: attr(data-hover);
 	visibility: hidden;
 	opacity: 0;
 	width: 140px;
-	background-color: black;
+	background-color: #111111;
 	color: #fff;
 	text-align: center;
 	border-radius: 5px;
-	padding: 5px 0;
-	transition: opacity 1s ease-in-out;
-  
+	padding: 5px;
+	transition: opacity 0.3s ease-in-out;
+	
 	position: absolute;
 	z-index: 1;
-	left: 0;
-	top: 110%;
+	left: 50%;
+	transform: translateX(-50%);
+	top: calc(100% + 10px);
   }
-  /* This what happens after hovering */
+  
   .hovertext:hover:before {
-	opacity: 1;
+	opacity: .7;
 	visibility: visible;
   }
 
@@ -240,4 +240,11 @@ iframe{
 	-webkit-transition: all 0.25s;
 	box-shadow: none;
 	transform: scale(0.98);
+  }
+
+  a, .navbar-brand{
+	text-decoration: none;
+	font-family: 'Montserrat', sans-serif;
+	font-weight:bolder;
+	
   }

@@ -42,7 +42,7 @@ require_once 'includes\dbh.inc.php';
                     <img src="assets\Logo.png" alt="Logo" width="55" height="55">
                   </a>
                     <!--Navbar Name-->
-                  <a class="navbar-brand" href="#" style = "color: #D4D4D4;">Resource Library</a>
+                  <a class="navbar-brand" href="#" style = "color: #D4D4D4; opacity:.75">Resource Library</a>
 
                   <!--Home-->
                   <span class="hovertext" data-hover="Home">
@@ -50,11 +50,11 @@ require_once 'includes\dbh.inc.php';
                     </span>
                     <!--Online Workshops-->
                     <span class="hovertext" data-hover="Online Workshops">
-                  <button class="btn"><i class="fi fi-rs-ballot"></i></button>
+                    <a href="workshop.html"> <button class="btn"><i class="fi fi-rs-ballot"></i></button></a>
                   </span>
                     <!--Resource Library-->
                     <span class="hovertext" data-hover="Resource Library">
-                  <button class="btnNow"><i class="fi fi-rr-books"></i></button>
+                    <a href="workshop.html"> <button class="btn"><i class="fi fi-rs-ballot" style = "color: #A65A28;"></i></button></a>
                   </span>
                     <!--Art Marketplace-->
                     <span class="hovertext" data-hover="Art Marketplace">
@@ -62,7 +62,7 @@ require_once 'includes\dbh.inc.php';
                   </span>
                     <!--Virtual Exhibit-->
                     <span class="hovertext" data-hover="Virtual Exhibit">
-                  <button class="btn"><i class="fi fi-br-eye"></i></button>
+                    <a href="virtualExhibit.html"><button class="btn"><i class="fi fi-br-eye"></i></button></a>
                   </span>
                   <!--Profile-->
                   <span class="hovertext" data-hover="Profile">
