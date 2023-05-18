@@ -78,6 +78,7 @@ if (!isset($_SESSION['loggedin'])) {
               <center>
                 
               <button class="buttonPost">
+                <a href ="uploadGallery.php">
                 <div class="svg-wrapper-1">
                   <div class="svg-wrapper">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -86,6 +87,7 @@ if (!isset($_SESSION['loggedin'])) {
                     </svg>
                   </div>
                 </div>
+              </a>
                 <span><a href="uploadGallery.php" style="color:#D4D4D4;"> Create Post</a></span>
               </button>
 
