@@ -209,3 +209,50 @@ iframe{
     margin:10px 10px 10px 10px;
     max-width: 98%;
   }
+
+  .owl-carousel {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .owl-carousel::before,
+  .owl-carousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 20%;
+    height: 75%;
+    pointer-events: none;
+  }
+
+  .owl-carousel::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  }
+
+  .owl-carousel::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  }
+
+  .owl-carousel .owl-stage {
+    margin-left: -10%;
+    margin-right: -10%;
+  }
+
+  .owl-carousel .owl-stage::before,
+  .owl-carousel .owl-stage::after {
+    content: "";
+    display: block;
+    width: 10%;
+  }
+
+  .owl-carousel .item img {
+    opacity: .6; /* Adjust the opacity as desired */
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .owl-carousel .item:hover img {
+    opacity: 1;
+  }
