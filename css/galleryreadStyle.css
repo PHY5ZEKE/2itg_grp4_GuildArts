@@ -29,6 +29,8 @@ body {
   .wrapper {
     background-color: #1d1d1c;
     color: white;
+    display: flex;
+    flex-direction: column;
   }
 
   .upper-section {

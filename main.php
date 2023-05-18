@@ -99,9 +99,9 @@ if (!isset($_SESSION['loggedin'])) {
       
       
 
-    <section class = "gallery-links">
+
         
-        <div class = "gallery-container">
+
         <?php
         include_once 'includes\dbh.inc.php';
 
@@ -113,16 +113,19 @@ if (!isset($_SESSION['loggedin'])) {
         }
         else
         {
+          
+          
           mysqli_stmt_execute($stmt);
           $result = mysqli_stmt_get_result($stmt);
-
+          
           while($row = mysqli_fetch_assoc($result))
           {
             
             echo'
-            
+            <div class="gallery-container-color">
+            <div class="gallery-container">
             <a href ="#">
-            <hr>
+
             <div style = "background-image: url(uploads/gallery/'.$row["imgFullNameGallery"].'); "></div>
             <h3>'.$row["titleGallery"].'</h3>
             <p>'.$row["descGallery"].'</p>
@@ -146,17 +149,19 @@ if (!isset($_SESSION['loggedin'])) {
             if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
               echo '
                     <a href="includes/gallerydelete.inc.php?id=' . $row['id'] . '" title="Delete Post" data-toggle="tooltip" class="btn btn-danger">Delete Post</span></a>
-                    <a href="includes/galleryupdate.inc.php?id=' . $row['id'] . '" title="Update Post" data-toggle="tooltip" class="btn btn-primary">Edit Post</span></a>';
+                    <a href="includes/galleryupdate.inc.php?id=' . $row['id'] . '" title="Update Post" data-toggle="tooltip" class="btn btn-primary">Edit Post</span></a>
+                    
+                    </div></div>';
           }
           }
-        }
+           }
         
         
         ?>
 
 </div>
-  </section>
-  </div>
+
+
   
 		
 	</body>

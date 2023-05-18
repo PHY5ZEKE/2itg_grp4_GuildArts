@@ -1,4 +1,3 @@
-
 html {
 	/* proper size of the website */
     margin: 0;
@@ -7,7 +6,7 @@ html {
 body{
 	/* removes the horizontal scrollwheel */
 	overflow-x: hidden;
-	background-color: #1d1d1c
+	background-color: #1d1d1c;
 }
 /*adjusts color of navbar*/
 .navbar {
@@ -33,25 +32,29 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     align-content:center; 
-    
+
+}
+
+.gallery-links{
+	background-color: #1d1d1c;
 }
 
 .container-fluid{
 	display:flex;
 }
 
-.content > p, .content > div {
-    
-    font-size: 22px;
-	color: #fff;
-	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+
+
+.content > div{
 	margin: 25px 0;
 	padding: 25px;
 	background-color: #1d1d1c;
 }
 
+
 a{
 	color:#1d1d1c;
+	decoration:none;
 }
 
 /* NAVBAR ICONS */
@@ -81,41 +84,23 @@ a{
 	background-color: #A65A28;
   }
 
+  .gallery-container-color div{
+	background-color: #282828;
+	padding-bottom: 3rem;
+	padding-left: 3rem;
+	padding-right: 2.7rem;
+	padding-top: 3rem;
+	border-radius: 40px;
+  }
   /* container of each post */
-  .gallery-container {
-	
-	width: 100%;
-	height: 100%;
-	display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content:center; 
-	
-	
-}
 
-/* .gallery-separator{
-display: flex;
-flex-direction: column;
-align-content: center;
-justify-content: center;
-} */
+
+.gallery-separator{
+height:10px;
+}
 
 /*spaces from each other*/
-.gallery-container  
-{
-	width: 600px;
-	background-color: #ffffff07;
-	padding-top: 4%;
- margin: 7% 0px 0;
- display: flex;
- flex-direction: column;
- flex-wrap: wrap;
- justify-content: center;
- align-content:center; 
-text-decoration: none;
-}
+
 /* the title of the post */
 .gallery-container h3{
 
@@ -146,12 +131,7 @@ text-decoration: none;
 	display:flex;
 
 }
-hr {
-	border: none;
-	height: 4px; /* Adjust the height as needed */
-	background-color: #f05902; /* Adjust the color as needed */
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Adjust the shadow properties as needed */
-  }
+
 p, p a{
 	color:white
 }

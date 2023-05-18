@@ -48,12 +48,8 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
     <meta charset="UTF-8">
     <title>Delete Post</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .wrapper {
-            width: 600px;
-            margin: 0 auto;
-        }
-    </style>
+    <link href="..\css\crudeStyle.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -63,14 +59,14 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
                 <div class="col-md-12">
                     <h2 class="mt-5 mb-3">Delete Post</h2>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <div class="alert alert-danger">
+<center>
                             <input type="hidden" name="id" value="<?php echo trim($_GET["id"]); ?>" />
                             <p>Are you sure you want to delete this resource?</p>
                             <p>
                                 <input type="submit" value="Yes" class="btn btn-danger">
                                 <a href="../main.php" class="btn btn-secondary ml-2">No</a>
                             </p>
-                        </div>
+</center>
                     </form>
                 </div>
             </div>

@@ -94,12 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Update Post</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .wrapper {
-            width: 600px;
-            margin: 0 auto;
-        }
-    </style>
+    <link href="..\css\crudeStyle.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -119,8 +114,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <textarea name="description" class="form-control"><?php echo $description; ?></textarea>
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>" />
+                       <center> <p>
                         <input type="submit" class="btn btn-primary" value="Submit">
                         <a href="../main.php" class="btn btn-secondary ml-2">Cancel</a>
+                        </p></center>
                     </form>
                 </div>
             </div>
