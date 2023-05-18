@@ -66,6 +66,14 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
 <head>
     <meta charset="UTF-8">
     <title>View Record</title>  
+     <!--Icons-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css'>
+        <!--Bootstrap-->
     <!--CSS-->
     <link href="..\css\galleryreadStyle.css" rel="stylesheet">
     <!--Bootstrap-->
@@ -152,19 +160,25 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
 
                     while ($row = mysqli_fetch_assoc($result)) {
 
-                        echo '
+                       
 
-            <div class="middle-section">
-                <div class="comment-box">
-                    <div class="card comment">
-                        <div class="card-body comment-content">
-                            ' . $row["comment"] .'
-                        </div>
-                        
-                     </div> Posted by: '. $row["useruid"].' at '. $row["created_at"].'
-                     </div>
-                     </div>'
-                        ;
+                        echo '
+                        <div class="middle-section">
+                            <div class="comment-box">
+                                <div class="card comment">
+                                    <div class="card-body comment-content">
+                                        ' . $row["comment"] .'
+                                    </div>
+                                </div>
+                                Posted by: '. $row["useruid"].' at '. $row["created_at"];
+                    
+                    if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
+                        echo '<a href="commentdelete.inc.php?id=' . $row['id'] . '" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                    }
+                    
+                    echo '
+                            </div>
+                        </div>';
                     }
                 }
 
