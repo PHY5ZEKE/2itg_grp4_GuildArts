@@ -122,10 +122,13 @@ if (!isset($_SESSION['loggedin'])) {
             ';
             if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
               echo '
-                    <a href="includes/gallerydelete.inc.php?id=' . $row['id'] . '" title="Delete Record" data-toggle="tooltip" class="btn btn-danger">Delete Post</span></a>';
+                    <a href="includes/gallerydelete.inc.php?id=' . $row['id'] . '" title="Delete Post" data-toggle="tooltip" class="btn btn-danger">Delete Post</span></a>
+                    <a href="includes/galleryupdate.inc.php?id=' . $row['id'] . '" title="Update Post" data-toggle="tooltip" class="btn btn-primary">Edit Post</span></a>';
           }
           }
         }
+        
+        
         ?>
 
 </div>
