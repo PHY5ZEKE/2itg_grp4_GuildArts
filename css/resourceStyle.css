@@ -63,24 +63,18 @@ a, .navbar-brand{
   }
   
   .resource-container {
-	
 	display:flex;
 	flex-wrap: wrap;
 	flex-direction: row;
-    justify-content:space-evenly;
     align-content:center; 
-    gap: 1rem;
-	
-
+	padding-left: 2rem;
+	gap: 2rem;
   }
-  
+
   .card {
 
 	width: 21rem;
 	height: 100%;
-
-	
-
   }
   .card:hover{
 	margin-top: -50px;

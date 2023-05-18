@@ -68,12 +68,7 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .wrapper {
-            width: 600px;
-            margin: 0 auto;
-        }
-    </style>
+    <link href="css\crudeStyle.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -106,15 +101,19 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
                         <label>Uploaded on:</label>
                         <p><b><?php echo $row["uploadDate"]; ?></b></p>
                      </div>
+                     <div class="button-container">
                      <?php
+                     
                 if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
                     echo '
+                            
                           <a href="includes/resourcedelete.inc.php?id=' . $row['idResource'] . '" title="Delete Record" data-toggle="tooltip" class="btn btn-danger">Delete</a>
-                          ';
+                          <p><a href="resource.php" class="btn btn-primary">Back</a></p>';
                 }
+                
                 ?>
                 
-                <p><a href="resource.php" class="btn btn-primary">Back</a></p>
+                </div>
             </div>
         </div>
     </div>

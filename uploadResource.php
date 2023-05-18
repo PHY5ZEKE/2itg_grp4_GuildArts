@@ -10,12 +10,7 @@ require_once "includes\dbh.inc.php";
     <meta charset="UTF-8">
     <title>Upload A Resource</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .wrapper {
-            width: 600px;
-            margin: 0 auto;
-        }
-    </style>
+    <link href="css\crudeStyle.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -41,11 +36,9 @@ require_once "includes\dbh.inc.php";
                         </div>
                         <div class="form-group">
                             <input type ="file" name ="file">
-                            <button type ="submit" name ="submit">UPLOAD</button>  
-                            <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
+                            <button type ="submit" name ="submit" class="btn btn-secondary ml-2">Upload</button>  
+                            <a href="resource.php" class="btn btn-secondary ml-2">Cancel</a>
                         </div>
-
-                       
                     </form>
                 </div>
             </div>

@@ -1,0 +1,100 @@
+body {
+    background-image: url("crudeBackground.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+   }    
+.wrapper {
+    width: 600px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+ h2{
+    text-align: center;
+    color:#A65A28;
+    font-weight: bold;
+}
+h1{
+    text-align: center;
+    color:#A65A28;
+    font-weight: bold;
+}
+
+p{
+    color:#D4D4D4;
+}
+
+.form-group{
+    color:#D4D4D4;
+    overflow-wrap: anywhere;
+    
+}
+.col-md-12{
+    background-color:#1d1d1cc0;
+    border-top-left-radius: 37px 140px;
+    border-top-right-radius: 23px 130px;
+    border-bottom-left-radius: 110px 19px;
+    border-bottom-right-radius: 120px 24px;
+
+    --border-width: 7px;
+    border-radius: var(--border-width);
+    &::after {
+        position: absolute;
+        content: "";
+        top: calc(-1 * var(--border-width));
+        left: calc(-1 * var(--border-width));
+        z-index: -1;
+        width: calc(100% + var(--border-width) * 2);
+        height: calc(100% + var(--border-width) * 2);
+        background: linear-gradient(
+          60deg,
+          hsl(224, 85%, 66%),
+          hsl(269, 85%, 66%),
+          hsl(314, 85%, 66%),
+          hsl(359, 85%, 66%),
+          hsl(44, 85%, 66%),
+          hsl(89, 85%, 66%),
+          hsl(134, 85%, 66%),
+          hsl(179, 85%, 66%)
+        );
+        background-size: 300% 300%;
+        background-position: 0 50%;
+        border-radius: calc(2 * var(--border-width));
+        animation: moveGradient 4s alternate infinite;
+      }
+    }
+    
+    @keyframes moveGradient {
+      50% {
+        background-position: 100% 50%;
+      }
+}
+.button-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.btn{
+    font-weight: bold;
+    background-color: #A65A28;
+    width: 90px;
+    height: 50px;
+    border-color: #A65A28;
+    line-height: 35px;
+}
+
+.btn:hover{
+    background-color: #1d1d1c;
+}
+
+
+
+
+
+
+
