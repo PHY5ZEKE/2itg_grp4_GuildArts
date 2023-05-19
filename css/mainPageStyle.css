@@ -99,6 +99,10 @@ a{
 height:10px;
 }
 
+.icons-container{
+	display:flex;
+	flex-direction: row;
+}
 /*spaces from each other*/
 
 /* the title of the post */

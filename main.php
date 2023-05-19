@@ -131,12 +131,14 @@ if (!isset($_SESSION['loggedin'])) {
             <p>'.$row["descGallery"].'</p>
             
             </a>
+            
             <p>Posted by: <a href="visitProfile.php?userid=' . $row["userid"] . '&useruid=' . $row["useruid"] . '">' . $row["useruid"] . '</a></p>
             <p>Uploaded On '.$row["created_at"].'</p>
 
             
             
             <a href="includes\galleryread.inc.php?id=' . $row['id'] . '">
+            
             <button class="btn">
               <i class="fi fi-br-user" href="profile.php"></i>
             </button>
@@ -145,13 +147,18 @@ if (!isset($_SESSION['loggedin'])) {
           <button class="btn">
             <i class="fi fi-rr-paint-brush"></i>
           </button>
+          
             ';
             if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
               echo '
+              
                     <a href="includes/gallerydelete.inc.php?id=' . $row['id'] . '" title="Delete Post" data-toggle="tooltip" class="btn btn-danger">Delete Post</span></a>
                     <a href="includes/galleryupdate.inc.php?id=' . $row['id'] . '" title="Update Post" data-toggle="tooltip" class="btn btn-primary">Edit Post</span></a>
                     
                     </div></div>';
+          }
+          else{
+            echo'</div></div>';
           }
           }
            }
