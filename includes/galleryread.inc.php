@@ -141,7 +141,7 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
         <div class="col-lg-6">
   <div class="upper-section">
     <div class="creator-name">
-      <p><b>Comments</b></p>
+      <center><p><b>Comments</b></p></center>
     </div>
     <hr>
   </div>

@@ -1,7 +1,9 @@
 body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+
+
+
+background-image: url("crudeBackground.jpg");
+
 }
 /*adjusts color of navbar*/
 .navbar {
@@ -48,6 +50,7 @@ button:active .signUp_top {
 transform: translateY(0);
 }
 
+
 .col-lg-6 {
     background-color: #1d1d1c;
     display: flex;
@@ -67,7 +70,7 @@ transform: translateY(0);
   
 .container {
     color: white;
-    
+    background-color: #1d1d1c;
     
   }
   .wrapper {
@@ -93,11 +96,21 @@ transform: translateY(0);
   .comment-box {
     margin:5px;
     padding: 10px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    color:#1d1d1c
+    background-color: #272727;
+    border-radius: 15px;
+    color:#fff;
+  }
+  .comment-box a{
+    color:#A65A28;
+    float:right;
+    padding-right: 0.5rem;
+    
   }
   
+  .comment-box button{
+    width: 30px;
+    height: 30px;
+  }
   .comment {
     margin-bottom: 10px; /* Adjust the spacing between comments as desired */
   }
@@ -105,10 +118,15 @@ transform: translateY(0);
   .comment-content {
     padding: 10px;
   }
+
+  .comment-box a span{
+    font-size: 1.7em;
+  }
   
   .comment-input-container {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding-bottom: 5%;
   }
   
@@ -131,7 +149,17 @@ transform: translateY(0);
 }
 
   .separator-line {
-    border-right: 1px solid #ccc;
-    height: 100%;
+
+}
+
+.form-group p{
+  font-size: larger;
+  color:#A65A28;
+}
+
+.creator-name p{
+
+  font-size: larger;
+  color:#A65A28;
 }
   
