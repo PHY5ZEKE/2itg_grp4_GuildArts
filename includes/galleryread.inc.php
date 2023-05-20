@@ -99,7 +99,8 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
         <div class="row">
             <div class="col-lg-6 separator-line">
                 <div class="wrapper">
-                    <h1 class="mt-5 mb-3"></h1>
+
+                <div class="back-button"><a href="../main.php" class="btn btn-primary">Back</a></div>
                     <div class="form-group">
                         <label>Title</label>
                         <p><b><?php echo $row["titleGallery"]; ?></b></p>
@@ -112,17 +113,16 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
                         <p><b><?php echo $row["descGallery"]; ?></b></p>
                     </div>
                     <div class="form-group">
-                    <label>Posted by:</label>
+                    
                     <p><b><?php echo $row["useruid"]; ?></b></p>
                     </div>
                     <div class="form-group">
-                        <label>Uploaded on:</label>
+                        
                         <p><b><?php echo $row["created_at"]; ?></b></p>
                     </div>
                     <div class="form-group">
-                        <label>Post ID:</label>
-                        <p></p>
-                        <p><b><?php echo $row["id"]; ?></b></p>
+                    <p><b> Post ID:
+                        <?php echo $row["id"]; ?></b></p>
                     </div>
 
                     <?php
@@ -135,7 +135,7 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
                   
                     ?>
 
-                    <p><a href="../main.php" class="btn btn-primary">Back</a></p>
+                    
             </div>
         </div>
         <div class="col-lg-6">
@@ -157,7 +157,7 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
                     mysqli_stmt_bind_param($stmt, "i", $postid);
                     mysqli_stmt_execute($stmt);
                     $result = mysqli_stmt_get_result($stmt);
-
+                    echo '<div class="comments-container">';
                     while ($row = mysqli_fetch_assoc($result)) {
 
                        
@@ -180,6 +180,7 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
                             </div>
                         </div>';
                     }
+                    echo '</div>';
                 }
 
 

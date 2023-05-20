@@ -164,7 +164,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
           <p>' . $row["descGallery"] . '</p>
         </a>
         
-        <p>Posted by:';
+        <p>';
     if (isset($_SESSION['userid']) && $_SESSION['userid'] == $row['userid']) {
       echo '<a href="profile.php">' . $row['useruid'] . '</a>';
     } else {
@@ -174,7 +174,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     
     <p>Uploaded On ' . $row["created_at"] . '</p>';
 
-    echo '<a href="includes/galleryread.inc.php?id=' . $row['id'] . '">
+    echo '<div class="icon-container"><a href="includes/galleryread.inc.php?id=' . $row['id'] . '">
       <button class="btn"#d22828>
         <i class="fi fi-br-user" href="profile.php"></i>
       </button>
@@ -195,9 +195,9 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
         <i class="fi fi-sr-pencil" style ="color: #22bbf2;"></i>
         </button>
         </a>
-      </div></div>';
+      </div></div></div>';
     } else {
-      echo '</div></div>';
+      echo '</div></div></div>';
     }
   }
 }

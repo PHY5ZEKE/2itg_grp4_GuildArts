@@ -169,7 +169,7 @@ height:10px;
 
 
 	width:500px;
-    height:500px;
+     height:500px;
 
 	background-size:contain;
     background-position:center;
@@ -286,6 +286,17 @@ p, p a{
   .buttonPost{
 	margin:none;
   }	
+
+  .icon-container{
+	
+	display:flex;
+	align-items: start;
+	justify-content: space-around;
+	flex-direction: row;
+  }
+  .icon-container div{
+	
+  }
 
 
   a,span{
