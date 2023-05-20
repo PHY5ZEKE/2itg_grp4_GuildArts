@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: index.html');
+	exit;
+}
 include_once 'includes/dbh.inc.php';
 
 if (isset($_GET['userid']) && isset($_GET['useruid'])) {
@@ -84,12 +90,52 @@ if (isset($_GET['userid']) && isset($_GET['useruid'])) {
             <h3>Username: '.$username.'</p>
             <h3>Email: '. $email.'</p>
             <h3>Bio<h3>
-            <a href="profileUpdate.html" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Edit Profile</a>
             </div>
 </div>';
 ?>
 </div>
-  
+<?php
+include_once 'includes/dbh.inc.php';
+
+// Assuming you have a session started with a 'userid' variable
+if (isset($selectedUserID)) {
+ 
+
+  $sql = "SELECT * FROM gallery WHERE userid = ? ORDER BY orderGallery DESC;";
+  $stmt = mysqli_stmt_init($conn);
+
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+    echo "SQL statement failed! HAHAHAHAH";
+  } else {
+    mysqli_stmt_bind_param($stmt, "s", $selectedUserID);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    echo '<div class="gallery-container">'; // Start the container
+
+    $counter = 0; // Counter to keep track of the number of images displayed
+
+    while ($row = mysqli_fetch_assoc($result)) {
+      // Add the image container for each image
+      
+      echo '<div class="image-container">';
+      echo '<a href="includes\galleryread.inc.php?id=' . $row['id'] . '">';
+      echo '<div style="background-image: url(uploads/gallery/'.$row["imgFullNameGallery"].');"></div>';
+      echo '</a>';
+      echo '</div>';
+
+      $counter++;
+
+      // Check if the row has reached 3 images
+      if ($counter % 3 === 0) {
+        echo '<div class="clearfix"></div>'; // Add a clearfix to start a new row
+      }
+    }
+
+    echo '</div>'; // End the container
+  }
+}
+?>
 
   
 

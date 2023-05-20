@@ -101,70 +101,59 @@ if (!isset($_SESSION['loggedin'])) {
 
 
         
+    <?php
+include_once 'includes/dbh.inc.php';
 
-        <?php
-        include_once 'includes\dbh.inc.php';
+$sql = "SELECT * FROM gallery ORDER BY orderGallery DESC;";
+$stmt = mysqli_stmt_init($conn);
+if (!mysqli_stmt_prepare($stmt, $sql)) {
+  echo "SQL statement failed!";
+} else {
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
 
-        $sql = "SELECT * FROM gallery ORDER BY orderGallery DESC;";
-        $stmt = mysqli_stmt_init($conn);
-        if(!mysqli_stmt_prepare($stmt,$sql))
-        {
-          echo "SQL stament failed! HAHAHAHAH";
-        }
-        else
-        {
-          
-          
-          mysqli_stmt_execute($stmt);
-          $result = mysqli_stmt_get_result($stmt);
-          
-          while($row = mysqli_fetch_assoc($result))
-          {
-            
-            echo'
-            <div class="gallery-container-color">
-            <div class="gallery-container">
-            <a href ="#">
-
-            <div style = "background-image: url(uploads/gallery/'.$row["imgFullNameGallery"].'); "></div>
-            <h3>'.$row["titleGallery"].'</h3>
-            <p>'.$row["descGallery"].'</p>
-            
-            </a>
-            
-            <p>Posted by: <a href="visitProfile.php?userid=' . $row["userid"] . '&useruid=' . $row["useruid"] . '">' . $row["useruid"] . '</a></p>
-            <p>Uploaded On '.$row["created_at"].'</p>
-
-            
-            
-            <a href="includes\galleryread.inc.php?id=' . $row['id'] . '">
-            
-            <button class="btn">
-              <i class="fi fi-br-user" href="profile.php"></i>
-            </button>
-          </a>
-
-          <button class="btn">
-            <i class="fi fi-rr-paint-brush"></i>
-          </button>
-          
-            ';
-            if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
-              echo '
-              
-                    <a href="includes/gallerydelete.inc.php?id=' . $row['id'] . '" title="Delete Post" data-toggle="tooltip" class="btn btn-danger">Delete Post</span></a>
-                    <a href="includes/galleryupdate.inc.php?id=' . $row['id'] . '" title="Update Post" data-toggle="tooltip" class="btn btn-primary">Edit Post</span></a>
-                    
-                    </div></div>';
-          }
-          else{
-            echo'</div></div>';
-          }
-          }
-           }
+  while ($row = mysqli_fetch_assoc($result)) {
+    echo '
+    <div class="gallery-container-color">
+      <div class="gallery-container">
+        <a href ="includes/galleryread.inc.php?id=' . $row['id'] . '">
+          <div style="background-image: url(uploads/gallery/' . $row["imgFullNameGallery"] . ');"></div>
+          <h3>' . $row["titleGallery"] . '</h3>
+          <p>' . $row["descGallery"] . '</p>
+        </a>
         
-        
-        ?>
+        <p>Posted by:';
+    if (isset($_SESSION['userid']) && $_SESSION['userid'] == $row['userid']) {
+      echo '<a href="profile.php">' . $row['useruid'] . '</a>';
+    } else {
+      echo '<a href="visitProfile.php?userid=' . $row['userid'] . '&useruid=' . $row['useruid'] . '">' . $row['useruid'] . '</a>';
+    }
+    echo '</p>
+    
+    <p>Uploaded On ' . $row["created_at"] . '</p>';
+
+    echo '<a href="includes/galleryread.inc.php?id=' . $row['id'] . '">
+      <button class="btn">
+        <i class="fi fi-br-user" href="profile.php"></i>
+      </button>
+    </a>
+
+    <button class="btn">
+      <i class="fi fi-rr-paint-brush"></i>
+    </button>';
+
+    if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
+      echo '
+        <a href="includes/gallerydelete.inc.php?id=' . $row['id'] . '" title="Delete Post" data-toggle="tooltip" class="btn btn-danger">Delete Post</span></a>
+        <a href="includes/galleryupdate.inc.php?id=' . $row['id'] . '" title="Update Post" data-toggle="tooltip" class="btn btn-primary">Edit Post</span></a>
+      </div></div>';
+    } else {
+      echo '</div></div>';
+    }
+  }
+}
+?>
+
 
 </div>
 

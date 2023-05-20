@@ -121,5 +121,33 @@ body{
 	visibility: visible;
   }
 
+  .gallery-container {
+	display: flex;
+	flex-wrap: wrap;
+  }
+  
+  .image-container {
+	width: 33.33%; /* Each image container takes one-third of the width */
+	padding: 5px;
+	box-sizing: border-box;
+  }
+  
+  .image-container a {
+	display: block;
+  }
+  
+  .image-container div {
+	width: 100%;
+	padding-bottom: 100%; /* Maintain a square aspect ratio for the images */
+	background-size: cover;
+	background-position: center;
+  }
+  
+  .clearfix {
+	clear: both;
+  }
+
+  
+
 
 
