@@ -79,19 +79,23 @@ function uidExists($conn,$username,$email)
 }
 function createUser($conn,$name,$email,$username,$pwd)
 {
-   $sql= "INSERT INTO users (usersName,usersEmail,usersUid,usersPwd) VALUES (?,?,?,?) ;";
-   $stmt = mysqli_stmt_init($conn);
-   if(!mysqli_stmt_prepare($stmt,$sql))
-   {
-    header("location:../registration.php?error=stmtfailed");
-   }
-
-   $hashedPwd = password_hash($pwd,PASSWORD_DEFAULT);
-
-   mysqli_stmt_bind_param($stmt,"ssss",$name,$email,$username,$hashedPwd);
-   mysqli_stmt_execute($stmt);
-   mysqli_stmt_close($stmt);
-   header("location:../index.html?error=none");
+    $sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd, pfp, bio) VALUES (?, ?, ?, ?, ?, ?) ;";
+    $stmt = mysqli_stmt_init($conn);
+    
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../registration.php?error=stmtfailed");
+    }
+    
+    $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
+    
+    $bio =" ";
+    $defaultpfp = 'default-pfp.jpg';
+    
+    mysqli_stmt_bind_param($stmt, "ssssss", $name, $email, $username, $hashedPwd, $defaultpfp,$bio);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    
+    header("location: ../index.html?error=none");
 
 }
 

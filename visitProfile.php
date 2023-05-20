@@ -22,6 +22,8 @@ if (isset($_GET['userid']) && isset($_GET['useruid'])) {
             $name = $row['usersName'];
             $username = $row['usersUid'];
             $email = $row['usersEmail'];
+            $bio = $row['bio'];
+            $pfp = $row['pfp'];
             // ... Retrieve other relevant user information
         } else {
             // User not found, display an error message or handle the scenario when the user is not found
@@ -81,7 +83,13 @@ if (isset($_GET['userid']) && isset($_GET['useruid'])) {
 
         <div class="outer">
         <div class="innerleft">
-        <img src="uploads\default.jpg">
+        <?php
+        if ($pfp !== null && !empty($pfp)) {
+          echo '<img src="uploads/pfp/' . $pfp . '" alt="Profile Picture">';
+      } else {
+          echo '<img src="uploads/pfp/default-pfp.jpg" alt="Profile Picture">';
+      }
+        ?>
     </div>
     <?php
 		echo'<div class="innerright">
@@ -89,7 +97,7 @@ if (isset($_GET['userid']) && isset($_GET['useruid'])) {
             <h3>Name: '.$name.'<h3>
             <h3>Username: '.$username.'</p>
             <h3>Email: '. $email.'</p>
-            <h3>Bio<h3>
+            <h3>Bio:' .$bio.'<h3>
             </div>
 </div>';
 ?>

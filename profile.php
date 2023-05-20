@@ -15,11 +15,11 @@ if (mysqli_connect_errno()) {
 	exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 // We don't have the password or email info stored in sessions, so instead, we can get the results from the database.
-$stmt = $conn->prepare('SELECT usersPwd, usersEmail FROM users WHERE usersId = ?');
+$stmt = $conn->prepare('SELECT usersId,usersPwd, usersEmail, pfp, bio FROM users WHERE usersId = ?');
 // In this case we can use the account ID to get the account info.
 $stmt->bind_param('i', $_SESSION['usersId']);
 $stmt->execute();
-$stmt->bind_result($usersPwd, $usersEmail);
+$stmt->bind_result($usersId,$usersPwd, $usersEmail, $pfp, $bio,);
 $stmt->fetch();
 $stmt->close();
 ?>
@@ -84,20 +84,37 @@ $stmt->close();
                 </div>
               </nav>
 
-        <div class="outer">
-        <div class="innerleft">
-        <img src="uploads\default.jpg">
-    </div>
-		<div class="innerright">
-			<div>
+<div class="outer">
+<div class="innerleft">
+
+<?php
+    // Retrieve the profile picture and bio based on the session userid
+    $stmt = $conn->prepare('SELECT pfp, bio FROM users WHERE usersId = ?');
+    $stmt->bind_param('i', $_SESSION['userid']);
+    $stmt->execute();
+    $stmt->bind_result($pfp, $bio);
+    $stmt->fetch();
+    $stmt->close();
+
+    // Check if the profile picture exists
+    if ($pfp !== null && !empty($pfp)) {
+      echo '<img src="uploads/pfp/' . $pfp . '" alt="Profile Picture">';
+  } else {
+      echo '<img src="uploads/pfp/default-pfp.jpg" alt="Profile Picture">';
+  }
+    ?>
+</div>
+	<div class="innerright">
+		<div>
             <h3><?=$_SESSION['userid']?><h3>
             <h3><?=$_SESSION['useruid']?><h3>
             <h3><?=$_SESSION['email']?><h3> 
-            <h3>Bio<h3>
-            <a href="profileUpdate.html" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Edit Profile</a>
-            </div>
-</div>
-</div>
+            <h3>Bio: <?=$bio?></h3>
+            <?php echo '<a href="includes\profileupdate.inc.php?usersId=' . $_SESSION['userid'] . '" title="Update Post" data-toggle="tooltip" class="btn btn-primary">Edit Post</span></a>';
+                ?>
+        </div>
+    </div>
+</div> 
 
 <?php
 include_once 'includes/dbh.inc.php';
