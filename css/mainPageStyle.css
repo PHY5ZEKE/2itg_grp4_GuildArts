@@ -8,6 +8,7 @@ body{
 	overflow-x: hidden;
 	margin-top: 200px;
 	background-color: #1d1d1c;
+	background-image: linear-gradient(to bottom, rgba(29, 29, 28, .7) 25%, rgba(29, 29, 28, .7) 100%), url("bg.png");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -51,19 +52,6 @@ body{
 .container-fluid{
 	display:flex;
 }
-
-/* .bleeding-light {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	pointer-events: none;
-	z-index: 700;
-	background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 5%, rgba(255, 255, 255, 1) 95%, rgba(255, 255, 255, 0));
-	transition: background-color 0.3s ease;
-  }  
-   */
 
    .title{
 	position: relative;
@@ -151,8 +139,13 @@ height:10px;
 /* the title of the post */
 .gallery-container h3{
 
+	padding-top: 4%;
 	font-size:xx-large;
 	color: #A65A28;
+	font-family: 'Source Sans Pro', sans-serif; 
+	font-weight: bold;
+	text-shadow: 2px 3px 4px rgba(23, 12, 4, 0.786),
+	-2px -2px 4px rgba(139, 76, 35, 0.329);
 
 }
 /* the description of the post */
@@ -306,86 +299,33 @@ p, p a{
   }
 
   .glow-effect {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 999;
-	pointer-events: none;
-  }
-  
-  .glow-effect::before,
-  .glow-effect::after {
-	content: "";
-	position: absolute;
-	top: 0;
-	width: 50%;
-	height: 100%;
-	background: rgba(255, 255, 255, 0);
-	opacity: 0;
-	transition: opacity 0.3s ease;
-  }
-  
-  .glow-effect::before {
-	left: 0;
-  }
-  
-  .glow-effect::after {
-	right: 0;
-  }
-  
-  .buttonT {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: 1em;
-	border: 0px solid transparent;
-	background-color: rgba(100,77,237,0.08);
-	border-radius: 1.25em;
-	transition: all 0.2s linear;
-   }
-   
-   .buttonT:hover {
-	box-shadow: 3.4px 2.5px 4.9px rgba(0, 0, 0, 0.025),
-	 8.6px 6.3px 12.4px rgba(0, 0, 0, 0.035),
-	 17.5px 12.8px 25.3px rgba(0, 0, 0, 0.045),
-	 36.1px 26.3px 52.2px rgba(0, 0, 0, 0.055),
-	 99px 72px 143px rgba(0, 0, 0, 0.08);
-   }
-   
-   .tooltip {
-	position: relative;
-	display: inline-block;
-   }
-   
-   .tooltip .tooltiptext {
-	visibility: hidden;
-	width: 4em;
-	background-color: rgba(0, 0, 0, 0.253);
-	color: #fff;
-	text-align: center;
-	border-radius: 6px;
-	padding: 5px 0;
-	position: absolute;
-	z-index: 1;
-	top: 25%;
-	left: 110%;
-   }
-   
-   .tooltip .tooltiptext::after {
-	content: "";
-	position: absolute;
-	top: 50%;
-	right: 100%;
-	margin-top: -5px;
-	border-width: 5px;
-	border-style: solid;
-	border-color: transparent rgba(0, 0, 0, 0.253) transparent transparent;
-   }
-   
-   .tooltip:hover .tooltiptext {
-	visibility: visible;
-   }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.glow-effect::before,
+.glow-effect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-effect::before {
+  left: 0;
+}
+
+.glow-effect::after {
+  right: 0;
+}
+
   
