@@ -37,17 +37,17 @@ if (!isset($_SESSION['loggedin'])) {
 	</head>
 	<body>
   <div class="glow-effect"></div>
-  <script>
-                function handleScroll() {
-  var glowEffect = document.querySelector(".glow-effect");
-  var scrollPosition = window.scrollY;
-  var windowHeight = window.innerHeight;
-  var scrollPercent = (scrollPosition / (document.documentElement.scrollHeight - windowHeight)) * 100;
-  var opacity = scrollPercent / 100;
+              <script>
+                    function handleScroll() {
+                    var glowEffect = document.querySelector(".glow-effect");
+                    var scrollPosition = window.scrollY;
+                    var windowHeight = window.innerHeight;
+                    var scrollPercent = (scrollPosition / (document.documentElement.scrollHeight - windowHeight)) * 100;
+                    var opacity = scrollPercent / 100;
 
-  glowEffect.style.setProperty("--glow-opacity", opacity);
-}
-window.addEventListener("scroll", handleScroll);
+                    glowEffect.style.setProperty("--glow-opacity", opacity);
+                  }
+                  window.addEventListener("scroll", handleScroll);
 
               </script>
     <nav class="navbar navbar-expand-lg">
@@ -164,7 +164,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
           <p>' . $row["descGallery"] . '</p>
         </a>
         
-        <p>';
+        <p>By: ';
     if (isset($_SESSION['userid']) && $_SESSION['userid'] == $row['userid']) {
       echo '<a href="profile.php">' . $row['useruid'] . '</a>';
     } else {
@@ -172,9 +172,9 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     }
     echo '</p>
     
-    <p>Uploaded On ' . $row["created_at"] . '</p>';
+    <p> ' . $row["created_at"] . '</p>';
 
-    echo '<div class="icon-container"><a href="includes/galleryread.inc.php?id=' . $row['id'] . '">
+    echo '<center><a href="includes/galleryread.inc.php?id=' . $row['id'] . '">
       <button class="btn"#d22828>
         <i class="fi fi-br-user" href="profile.php"></i>
       </button>
@@ -195,9 +195,9 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
         <i class="fi fi-sr-pencil" style ="color: #22bbf2;"></i>
         </button>
         </a>
-      </div></div></div>';
+      </div></div>';
     } else {
-      echo '</div></div></div>';
+      echo '</div></div>';
     }
   }
 }
@@ -205,24 +205,6 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 
 
 </div>
-
-
-<!-- <script>
-  function handleScroll() {
-  var bleedingLight = document.querySelector(".bleeding-light");
-  var content = document.querySelector(".content");
-  var scrollPosition = window.scrollY;
-  var contentWidth = content.offsetWidth;
-  var windowWidth = window.innerWidth;
-  var opacity = scrollPosition / (contentWidth - windowWidth);
-  bleedingLight.style.background = `linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, ${opacity}) 5%, rgba(255, 255, 255, ${opacity}) 95%, rgba(255, 255, 255, 0))`;
-}
-
-window.addEventListener("scroll", handleScroll);
-
-
-</script> -->
   
-		
 	</body>
 </html>
