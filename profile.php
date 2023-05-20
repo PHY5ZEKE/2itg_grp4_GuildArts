@@ -120,7 +120,7 @@ $stmt->close();
             <h3><?=$_SESSION['useruid']?><h3>
             <h3><?=$_SESSION['email']?><h3> 
             <h3>Bio: <?=$bio?></h3>
-            <?php echo '<a href="includes\profileupdate.inc.php?usersId=' . $_SESSION['userid'] . '" title="Update Post" data-toggle="tooltip" class="btn btn-primary">Edit Post</span></a>';
+            <?php echo '<a href="includes\profileupdate.inc.php?usersId=' . $_SESSION['userid'] . '" title="Update Post" data-toggle="tooltip" class="btn btn-primary">Edit Profile</span></a>';
                 ?>
         </div>
     </div>
