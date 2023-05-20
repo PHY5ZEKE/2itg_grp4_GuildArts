@@ -47,6 +47,8 @@ body
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 3px;
+    text-shadow: 2.5px 3.5px 4px rgba(23, 12, 4, 0.786),
+	-3px -3px 4px rgba(139, 76, 35, 0.329);
 }
 /*modifies the subheading*/
 .subheading

@@ -1,12 +1,33 @@
 body{
-	
-	background-color: #1d1d1c
+	/* removes the horizontal scrollwheel */
+	overflow-x: hidden;
+	margin-top: 180px;
+	background-color: #1d1d1c;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
 }
 /*adjusts color of navbar*/
 .navbar {
     background-color: #1d1d1c;
+	width: 95%;
+	position: fixed;
+	z-index: 9999; /* Set a high z-index value to ensure it stays on top */
   }
 
+
+  /* fixes the spacing of the navbar */
+.navbar-logo{
+	padding-left: 2%;
+}
+
+.navbar-expand-lg {
+	position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  }
 .content {
     text-align: center;
     
