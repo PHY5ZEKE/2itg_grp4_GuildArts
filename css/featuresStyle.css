@@ -1,0 +1,132 @@
+/* Original CSS */
+
+body {
+    background-color: #1d1d1c;
+    color: #D4D4D4;
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #A65A28;
+  }
+  
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  /* Navbar CSS */
+  
+  /*adjusts color of navbar*/
+.navbar {
+    background-color: #1d1d1c;
+  }
+  /*adjusts the color of the sign up button*/
+  .orange-btn {
+    color: #D4D4D4;
+    background-color: #A65A28;
+  }
+  
+  /* For Sign up button */
+  .signUp {
+  /* Variables */
+  --button_radius: 0.75em;
+  --button_color: #D4D4D4;
+  padding: 0.25em .05em;
+  --button_outline_color: #A65A28;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: var(--button_radius);
+  background: var(--button_outline_color);
+  }
+  /* sign up shadow */
+  .signUp_top {
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid var(--button_outline_color);
+  border-radius: var(--button_radius);
+  padding: 0.75em 1.5em;
+  background: var(--button_color);
+  color: var(--button_outline_color);
+  transform: translateY(-0.2em);
+  transition: transform 0.1s ease;
+  }
+  button:hover .signUp_top {
+  /* Pull the button upwards when hovered */
+  transform: translateY(-0.33em);
+  }
+  
+  button:active .signUp_top {
+  /* Push the button downwards when pressed */
+  transform: translateY(0);
+  }
+  
+  
+  .navbar-brand {
+    color: #d4d4d4;
+    font-size: 20px;
+    opacity: 60%;
+    padding-right: 25px;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #d4d4d4;
+    font-size: 20px;
+    padding-right: 15px;
+  }
+  
+  .navbar-nav .nav-link.active {
+    color: #a65a28;
+  }
+  
+  /* Sign-up button */
+  
+  .signUp {
+    /* Variables */
+    --button_radius: 0.75em;
+    --button_color: #D4D4D4;
+    padding: 0.25em 0.5em;
+    --button_outline_color: #A65A28;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
+  }
+  
+  /* Sign-up button shadow */
+  .signUp_top {
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background: var(--button_color);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+  }
+  
+  button:hover .signUp_top {
+    /* Pull the button upwards when hovered */
+    transform: translateY(-0.33em);
+  }
+  
+  button:active .signUp_top {
+    /* Push the button downwards when pressed */
+    transform: translateY(0);
+  }
+  

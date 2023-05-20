@@ -74,6 +74,16 @@ require_once 'includes\dbh.inc.php';
                   <a href="includes\logout.inc.php"><button class="btn">
                     <i class="fi fi-bs-sign-out-alt"></i></button></a>
                   </div>
+                  <script>
+                      window.addEventListener('scroll', function() {
+                  var navbar = document.getElementById('navbar');
+                  if (window.pageYOffset > 0) {
+                    navbar.classList.add('scrolled');
+                  } else {
+                    navbar.classList.remove('scrolled');
+                  }
+                });
+                    </script>
                 </div>
               </nav>
 

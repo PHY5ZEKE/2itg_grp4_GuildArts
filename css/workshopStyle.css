@@ -7,16 +7,19 @@ html {
 body{
 	/* removes the horizontal scrollwheel */
 	overflow-x: hidden;
-
-	background-image: linear-gradient(to bottom, rgba(29, 29, 28, 9) 12%, rgba(0, 0, 0, 0) 55%), url("1253046.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+	margin-top: 100px;
+	background-image: linear-gradient(to bottom, rgba(29, 29, 28, 1) 25%, rgba(0, 0, 0, 0) 100%), url("1253046.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
 }
 /*adjusts color of navbar*/
 .navbar {
     background-color: #1d1d1c;
 	width: 95%;
+	position: fixed;
+	z-index: 9999; /* Set a high z-index value to ensure it stays on top */
   }
 
 
@@ -24,6 +27,13 @@ body{
 .navbar-logo{
 	padding-left: 2%;
 }
+
+.navbar-expand-lg {
+	position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  }
 
 .navbar-brand{
 	padding-left: 12px;
@@ -196,6 +206,8 @@ iframe{
     font-weight: bolder;
     font-family: 'Montserrat', sans-serif;
     font-family: 'Source Sans Pro', sans-serif; 
+	text-shadow: 2.5px 3.5px 4px rgba(23, 12, 4, 0.786),
+	-3px -3px 4px rgba(139, 76, 35, 0.329);
     
 }
 

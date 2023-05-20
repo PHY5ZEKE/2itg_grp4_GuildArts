@@ -25,6 +25,7 @@ if (!isset($_SESSION['loggedin'])) {
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
@@ -35,6 +36,20 @@ if (!isset($_SESSION['loggedin'])) {
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
 	</head>
 	<body>
+  <div class="glow-effect"></div>
+  <script>
+                function handleScroll() {
+  var glowEffect = document.querySelector(".glow-effect");
+  var scrollPosition = window.scrollY;
+  var windowHeight = window.innerHeight;
+  var scrollPercent = (scrollPosition / (document.documentElement.scrollHeight - windowHeight)) * 100;
+  var opacity = scrollPercent / 100;
+
+  glowEffect.style.setProperty("--glow-opacity", opacity);
+}
+window.addEventListener("scroll", handleScroll);
+
+              </script>
     <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <!--Navbar Logo-->
@@ -74,12 +89,21 @@ if (!isset($_SESSION['loggedin'])) {
                   <a href="includes\logout.inc.php"><button class="btn">
                     <i class="fi fi-bs-sign-out-alt"></i></button></a>
                   </div>
+                  <script>
+                      window.addEventListener('scroll', function() {
+                  var navbar = document.getElementById('navbar');
+                  if (window.pageYOffset > 0) {
+                    navbar.classList.add('scrolled');
+                  } else {
+                    navbar.classList.remove('scrolled');
+                  }
+                });
+                    </script>
                 </div>
               </nav>
-              <center>
-
+            
               <a href="uploadGallery.php" class="button-link">
-                <button class="buttonPost">
+              <button class="buttonPost">
                   <div class="svg-wrapper-1">
                     <div class="svg-wrapper">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -91,16 +115,34 @@ if (!isset($_SESSION['loggedin'])) {
                   <span style="color:#D4D4D4;">Create Post</span>
                 </button>
               </a>
-
+              <center><p class="title">GuildArts Gallery</p>
+              <p class="subtext">Works of art for all to see!</p></center>
+              <div class="bleeding-light">
+                
+              </div>          
+              
 
               
-            </center>
 		<div class="content">
       
-      
+    <script>
+                function handleScroll() {
+  var button = document.querySelector(".buttonPost");
+  var scrolled = window.pageYOffset;
+  if (scrolled > 200) { // Adjust the scroll position at which the button should shift
+    button.classList.add("shifted");
+  } else {
+    button.classList.remove("shifted");
+  }
+}
+
+window.addEventListener("scroll", handleScroll);
+
+// Initial execution
+handleScroll();
 
 
-        
+            </script>      
     <?php
 include_once 'includes/dbh.inc.php';
 
@@ -133,7 +175,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     <p>Uploaded On ' . $row["created_at"] . '</p>';
 
     echo '<a href="includes/galleryread.inc.php?id=' . $row['id'] . '">
-      <button class="btn">
+      <button class="btn"#d22828>
         <i class="fi fi-br-user" href="profile.php"></i>
       </button>
     </a>
@@ -144,8 +186,15 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 
     if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
       echo '
-        <a href="includes/gallerydelete.inc.php?id=' . $row['id'] . '" title="Delete Post" data-toggle="tooltip" class="btn btn-danger">Delete Post</span></a>
-        <a href="includes/galleryupdate.inc.php?id=' . $row['id'] . '" title="Update Post" data-toggle="tooltip" class="btn btn-primary">Edit Post</span></a>
+        <a href="includes/gallerydelete.inc.php?id=' . $row['id'] . '">
+        <button class="btn"><i class="fi fi-sr-trash"style = "color: #d22828;"></button></i>
+        </a>
+        
+        <a href="includes/galleryupdate.inc.php?id=' . $row['id'] . '">
+        <button class="btn">
+        <i class="fi fi-sr-pencil" style ="color: #22bbf2;"></i>
+        </button>
+        </a>
       </div></div>';
     } else {
       echo '</div></div>';
@@ -158,6 +207,21 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 </div>
 
 
+<!-- <script>
+  function handleScroll() {
+  var bleedingLight = document.querySelector(".bleeding-light");
+  var content = document.querySelector(".content");
+  var scrollPosition = window.scrollY;
+  var contentWidth = content.offsetWidth;
+  var windowWidth = window.innerWidth;
+  var opacity = scrollPosition / (contentWidth - windowWidth);
+  bleedingLight.style.background = `linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, ${opacity}) 5%, rgba(255, 255, 255, ${opacity}) 95%, rgba(255, 255, 255, 0))`;
+}
+
+window.addEventListener("scroll", handleScroll);
+
+
+</script> -->
   
 		
 	</body>
