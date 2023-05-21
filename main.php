@@ -50,6 +50,7 @@ if (!isset($_SESSION['loggedin'])) {
                   window.addEventListener("scroll", handleScroll);
 
               </script>
+
     <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <!--Navbar Logo-->
@@ -180,7 +181,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
       </button>
     </a>
 
-    <button class="btn btn-orange">
+    <button class="btnlike">
       <i class="fi fi-rr-paint-brush"></i>
     </button>
     
@@ -205,7 +206,14 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
   }
 }
 ?>
-
+              <script>
+    const btnElList = document.querySelectorAll('.btnlike');
+    btnElList.forEach(btnEl => {
+      btnEl.addEventListener('click', () => {
+        btnEl.classList.add('special');
+      });
+    });
+              </script>
 
 </div>
   
