@@ -103,7 +103,8 @@ a{
 	
   }
 
-  .btn:hover, .btnlike:hover {
+  .btn:hover {
+	
 	background-color: #A65A28; /* color when hovered */
   }
 /* the highlighted navbar icon */
@@ -119,25 +120,6 @@ a{
   .btnNow:hover {
 	background-color: #A65A28;
   }
-  .btnlike{
-	border: none; /* Remove borders */
-	background-color: transparent;
-	color: #d4d4d4; /* White text */
-	padding: 12px 16px; /* Some padding */
-	font-size: 30px; /* Set a font size */
-	cursor: pointer; /* Mouse pointer on hover */
-
-  }
-
-  .special{
-	border: none; /* Remove borders */
-	background-color: transparent;
-	color: #A65A28;; /* White text */
-	padding: 12px 16px; /* Some padding */
-	font-size: 30px; /* Set a font size */
-	cursor: pointer; /* Mouse pointer on hover */
-  }
-
 
   .gallery-container-color div{
 	background-color: #303030;
@@ -308,7 +290,6 @@ p, p a{
   .buttonPost{
 	margin:none;
   }	
-
 
   .icon-container{
 	

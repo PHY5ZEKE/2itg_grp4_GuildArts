@@ -17,11 +17,12 @@
 <div class="wrapper">
     <div class="col-md-12">
     
-    <form action = "includes\galleryupload.inc.php" method ="post" enctype ="multipart/form-data">
+    <form action = "includes\artmarketplaceupload.inc.php" method ="post" enctype ="multipart/form-data">
     <h1 class="mt-5 mb-3">Upload</h1>
-    <input type ="text" name ="filename" placeholder ="File name...">
-    <input type ="text" name ="filetitle" placeholder ="Image Title..." required>
-    <input type ="text" name ="filedesc" placeholder ="Image Description..." required>
+    
+    <input type ="text" name ="titleArt" placeholder ="Art Title..." required>
+    <input type ="text" name ="descArt" placeholder ="Art Description..." required>
+    <input type ="text" name ="priceArt" placeholder ="Art Price..." required>
     <input type ="file" name ="file">
     <p><button type ="submit" name ="submit" style="background-color:#A65A28;">Upload</button></p>
   </form>
