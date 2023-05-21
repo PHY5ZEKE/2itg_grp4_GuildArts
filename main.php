@@ -159,12 +159,12 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     <div class="gallery-container-color">
       <div class="gallery-container">
         <a href ="includes/galleryread.inc.php?id=' . $row['id'] . '">
-          <div style="background-image: url(uploads/gallery/' . $row["imgFullNameGallery"] . ');"></div>
+          <div style="background-image: url(uploads/gallery/' . $row["imgFullNameGallery"] . ');background-size: cover;border-radius: 25px;border: 4px solid #D4D4D4;"></div>
           <h3>' . $row["titleGallery"] . '</h3>
-          <p>' . $row["descGallery"] . '</p>
+          <p class="subheading">' . $row["descGallery"] . '</p>
         </a>
         
-        <p>By: ';
+        <p class="subtext" style="padding-left: 0px;font-size: 20px;margin-top: 30px;">By: ';
     if (isset($_SESSION['userid']) && $_SESSION['userid'] == $row['userid']) {
       echo '<a href="profile.php">' . $row['useruid'] . '</a>';
     } else {
@@ -172,7 +172,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     }
     echo '</p>
     
-    <p> ' . $row["created_at"] . '</p>';
+    <p style="font-size: 15px;margin-top: 20px;opacity:.5;"> ' . $row["created_at"] . '</p>';
 
     echo '<center><a href="includes/galleryread.inc.php?id=' . $row['id'] . '">
       <button class="btn"#d22828>
@@ -182,7 +182,10 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 
     <button class="btn">
       <i class="fi fi-rr-paint-brush"></i>
-    </button>';
+    </button>
+    
+    ';
+    
 
     if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
       echo '

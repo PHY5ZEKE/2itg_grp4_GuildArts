@@ -73,6 +73,7 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
         <!--Bootstrap-->
     <!--CSS-->
     <link href="..\css\galleryreadStyle.css" rel="stylesheet">
@@ -99,11 +100,13 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
         <div class="row">
             <div class="col-lg-6 separator-line">
                 <div class="wrapper">
-
-                <div class="back-button"><a href="../main.php" class="btn btn-primary">Back</a></div>
+                <button class="btn">
+                <a href="../main.php"><i class="fi fi-br-arrow-left" style = "color: #A65A28;font-size: 40px">
+                        </i>
+                        </a></button>
                     <div class="form-group">
                         <label>Title</label>
-                        <p><b><?php echo $row["titleGallery"]; ?></b></p>
+                        <p class="title"><b><?php echo $row["titleGallery"]; ?></b></p>
                     </div>
                     <div class="form-group">
                         <div class="image-container"></div>
@@ -145,6 +148,25 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
     </div>
     <hr>
   </div>
+  <div class="bottom-section">
+    <div class="comment-input-container">
+        <form id="comment-form" method="POST">
+            <textarea id="comment-input" class="comment-input" placeholder="Add a comment..." name="comment"></textarea>
+            <center><button type="submit" id="submit-comment" class="buttonPost">
+                  <div class="svg-wrapper-1">
+                    <div class="svg-wrapper">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="none" d="M0 0h24v24H0z"></path>
+                        <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <span style="color:#D4D4D4;">Post</span>
+                </button>
+                </center>
+        </form>
+    </div>
+</div>
   <?php
                 include_once 'dbh.inc.php';
 
@@ -188,14 +210,7 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
 
                 
 
-  <div class="bottom-section">
-    <div class="comment-input-container">
-        <form id="comment-form" method="POST">
-            <textarea id="comment-input" class="comment-input" placeholder="Add a comment..." name="comment"></textarea>
-            <button type="submit" id="submit-comment" class="comment-submit">Submit</button>
-        </form>
-    </div>
-</div>
+
 </div>
 
 <script>
