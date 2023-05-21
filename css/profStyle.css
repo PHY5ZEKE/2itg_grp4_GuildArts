@@ -1,7 +1,7 @@
 body{
 	/* removes the horizontal scrollwheel */
 	overflow-x: hidden;
-	margin-top: 180px;
+	margin-top: 100px;
 	background-color: #1d1d1c;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -145,15 +145,44 @@ body{
   }
 
   .gallery-container {
+	margin: 1% 1% 1% 1%;
 	display: flex;
-	flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
   
   .image-container {
-	width: 33.33%; /* Each image container takes one-third of the width */
-	padding: 5px;
-	box-sizing: border-box;
-  }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.image-item {
+    width: 32%;
+	margin-top: 10px;
+	margin-left: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.image-item:last-child {
+    margin-right: 0;
+}
+
+.image-wrapper {
+    padding-bottom: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.image-wrapper:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
   
   .image-container a {
 	display: block;
@@ -170,7 +199,78 @@ body{
 	clear: both;
   }
 
+  .buttonEdit {
+	height: 30px;
+	margin: 5px;
+	width: 100px;
+	float: right;
+	margin-bottom: 30px;
+  margin-right: 20px;
+	background: #333;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	font-family: 'Source Sans Pro', sans-serif; 
+	border: solid #404C5D 1px;
+	font-size: 16px;
+	color: rgb(161, 161, 161);
+	-webkit-transition: 500ms;
+	transition: 500ms;
+	border-radius: 5px;
+	background: linear-gradient(145deg, #2e2d2d, #212121);
+	-webkit-box-shadow: -1px -5px 5px #41465B, 
+				 5px  5px 5px #41465B, 
+	  inset      5px  5px 5px #212121, 
+	  inset     -5px -5px 5px #212121;
+	box-shadow: -1px -5px 5px #41465B, 
+				 5px  5px 5px #41465B, 
+	  inset      5px  5px 5px #212121, 
+	  inset     -5px -5px 5px #212121;
+  }
   
+  .buttonEdit:hover {
+	-webkit-box-shadow: 1px 1px 13px #20232e,
+					  -1px -1px 13px #545b78;
+	box-shadow: 1px 1px 13px #20232e,
+			   -1px -1px 13px #545b78;
+	color: #d6d6d6;
+	-webkit-transition: 500ms;
+	transition: 500ms;
+  }
+  
+  .buttonEdit:active {
+	-webkit-box-shadow: 1px 1px 13px #20232e,
+					   -1px -1px 33px #545b78;
+	box-shadow: 1px 1px 13px #20232e,
+			   -1px -1px 33px #545b78;
+	color: #d6d6d6;
+	-webkit-transition: 100ms;
+	transition: 100ms;
+  }
+  
+  h2 {
+    font-size: 80px;
+    color: #A65A28;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 18px;
+    color: #D4D4D4;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 16px;
+    color: #D4D4D4;
+    margin-bottom: 40px;
+    font-style: italic;
+	opacity: .7;
+}
 
 
 
