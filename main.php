@@ -57,7 +57,7 @@ if (!isset($_SESSION['loggedin'])) {
                     <img src="assets\Logo.png" alt="Logo" width="85" height="85">
                   </a>
                     <!--Navbar Name-->
-                  <a class="navbar-brand" href="#" style = "color: #D4D4D4; opacity:.75">Main Gallery</a>
+                  <a class="navbar-brand" href="#" style = "color: #D4D4D4; opacity:.75">GuildArts</a>
 
                   <!--Home-->
                   <span class="hovertext" data-hover="Home">

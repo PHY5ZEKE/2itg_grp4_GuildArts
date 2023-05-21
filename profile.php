@@ -50,7 +50,7 @@ $stmt->close();
                     <img src="assets\Logo.png" alt="Logo" width="55" height="55">
                   </a>
                     <!--Navbar Name-->
-                    <a class="navbar-brand" href="#" style = "color: #D4D4D4; opacity:.75">Profile</a>
+                    <a class="navbar-brand" href="#" style = "color: #D4D4D4; opacity:.75">GuildArts</a>
                   <!--Home-->
                   <span class="hovertext" data-hover="Home">
                     <a href="main.php"><button class="btn"><i class="fi fi-ss-house-chimney"></i></button></a>
