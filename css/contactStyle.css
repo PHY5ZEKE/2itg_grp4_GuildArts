@@ -1,0 +1,123 @@
+/* contactStyle.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .contact-section {
+    text-align: center;
+  }
+  
+  .contact-section h1 {
+    font-size: 48px;
+    color: #a65a28;
+    margin-bottom: 30px;
+  }
+  
+  .contact-details {
+    background-color: #f8f8f8;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-text {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #555555;
+  }
+  
+  .contact-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .contact-item {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #777777;
+  }
+  
+  .contact-item i {
+    margin-right: 10px;
+    color: #a65a28;
+  }
+  
+  .navbar {
+    background-color: #1d1d1c;
+    padding: 10px;
+  }
+  
+  .navbar-brand {
+    color: #d4d4d4;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 24px;
+    opacity: 60%;
+    padding-right: 25px;
+  }
+  
+  .navbar-toggler {
+    border-color: #d4d4d4;
+  }
+  
+  .nav-link {
+    color: #d4d4d4;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 24px;
+    padding-right: 15px;
+  }
+  
+  .signUp {
+    background-color: #a65a28;
+    color: #ffffff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .signUp:hover {
+    background-color: #8b4a1f;
+  }
+  
+  .active {
+    color: #a65a28 !important;
+  }
+  
+  /* Additional Styles */
+  
+  .contact-details {
+    border: 1px solid #d4d4d4;
+  }
+  
+  .contact-text {
+    border-bottom: 1px solid #d4d4d4;
+    padding-bottom: 15px;
+  }
+  
+  .contact-list {
+    margin-top: 30px;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #d4d4d4;
+  }
+  
+  .contact-item i {
+    margin-right: 15px;
+    color: #a65a28;
+  }
+  
+  .contact-item:last-child {
+    border-bottom: none;
+  }
+  
+  
