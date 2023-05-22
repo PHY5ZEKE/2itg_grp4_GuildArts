@@ -143,8 +143,40 @@ handleScroll();
 
 
             </script>      
-    <?php
+  <?php
 include_once 'includes/dbh.inc.php';
+
+// Function to check if a user has liked a gallery item
+function hasLikedGalleryItem($conn, $galleryId, $userId) {
+  $sql = "SELECT COUNT(*) FROM hearts WHERE gallery_id = ? AND user_id = ?";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+    return false;
+  } else {
+    mysqli_stmt_bind_param($stmt, "ii", $galleryId, $userId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $count);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+    return $count > 0;
+  }
+}
+
+// Function to get the total number of hearts for a gallery item
+function getGalleryItemHeartsCount($conn, $galleryId) {
+  $sql = "SELECT COUNT(*) FROM hearts WHERE gallery_id = ?";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+    return 0;
+  } else {
+    mysqli_stmt_bind_param($stmt, "i", $galleryId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $count);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+    return $count;
+  }
+}
 
 $sql = "SELECT * FROM gallery ORDER BY orderGallery DESC;";
 $stmt = mysqli_stmt_init($conn);
@@ -155,37 +187,42 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
   $result = mysqli_stmt_get_result($stmt);
 
   while ($row = mysqli_fetch_assoc($result)) {
+    $galleryId = $row['id'];
+    $userId = $_SESSION['userid'];
+
     echo '
     <div class="gallery-container-color">
       <div class="gallery-container">
-        <a href ="includes/galleryread.inc.php?id=' . $row['id'] . '">
+        <a href ="includes/galleryread.inc.php?id=' . $galleryId . '">
           <div style="background-image: url(uploads/gallery/' . $row["imgFullNameGallery"] . ');background-size: cover;border-radius: 25px;border: 4px solid #D4D4D4;"></div>
           <h3>' . $row["titleGallery"] . '</h3>
           <p class="subheading">' . $row["descGallery"] . '</p>
         </a>
         
         <p class="subtext" style="padding-left: 0px;font-size: 20px;margin-top: 30px;">By: ';
+    
     if (isset($_SESSION['userid']) && $_SESSION['userid'] == $row['userid']) {
       echo '<a href="profile.php">' . $row['useruid'] . '</a>';
     } else {
       echo '<a href="visitProfile.php?userid=' . $row['userid'] . '&useruid=' . $row['useruid'] . '">' . $row['useruid'] . '</a>';
     }
+    
     echo '</p>
     
     <p style="font-size: 15px;margin-top: 20px;opacity:.5;"> ' . $row["created_at"] . '</p>';
 
-    echo '<center><a href="includes/galleryread.inc.php?id=' . $row['id'] . '">
-      <button class="btn"#d22828>
-        <i class="fi fi-br-user" href="profile.php"></i>
-      </button>
-    </a>
+    // Check if the user has liked the gallery item
+    $hasLiked = isset($_SESSION['userid']) && hasLikedGalleryItem($conn, $galleryId, $userId);
 
-    <button class="btnlike">
-      <i class="fi fi-rr-paint-brush"></i>
-    </button>
-    
-    ';
-    
+    echo '<form action="includes/heart.inc.php" method="post">';
+    echo '<input type="hidden" name="gallery_id" value="' . $galleryId . '">';
+    echo '<button type="submit" name="heart-submit" class="btn" style="color: ' . ($hasLiked ? '#ff0000' : '#000000') . '"><i class="fa fa-heart"></i></button>';
+    echo '</form>';
+
+    // Get the total number of hearts for the gallery item
+    $heartsCount = getGalleryItemHeartsCount($conn, $galleryId);
+
+    echo '<p>Total Hearts: ' . $heartsCount . '</p>';
 
     if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
       echo '
@@ -204,15 +241,13 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     }
   }
 }
+
+  
+
+mysqli_stmt_close($stmt);
+mysqli_close($conn);
 ?>
-              <script>
-    const btnElList = document.querySelectorAll('.btnlike');
-    btnElList.forEach(btnEl => {
-      btnEl.addEventListener('click', () => {
-        btnEl.classList.add('special');
-      });
-    });
-              </script>
+            
 
 </div>
   
