@@ -26,7 +26,7 @@ html::-webkit-scrollbar-thumb {
 
 body{
 	/* removes the horizontal scrollwheel */
-	overflow-x: hidden;
+	
 	margin-top: 200px;
 	background-color: #1d1d1c;
 	background-image: linear-gradient(to bottom, rgba(29, 29, 28, .7) 25%, rgba(29, 29, 28, .7) 100%), url("bg1.png");
@@ -82,6 +82,10 @@ body{
   .btnNow:hover {
 	background-color: #A65A28;
   }
+
+  a{
+	color:#1d1d1c;
+}
 
 
 
@@ -139,9 +143,7 @@ body{
 }
 
 
-a{
-	color:#1d1d1c;
-}
+
 
 
   .btnlike{

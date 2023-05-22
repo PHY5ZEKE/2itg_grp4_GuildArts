@@ -8,6 +8,27 @@ body{
 	background-attachment: fixed;
 	background-size: cover;
 }
+
+
+html::-webkit-scrollbar {
+    width: 12px;
+   
+}
+
+html::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: #ababab;
+    border: 1px solid #ababab;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+}
+
+html::-webkit-scrollbar-thumb {
+
+
+    border-radius: 8px;
+    background-color: #363636;
+}
+
 /*adjusts color of navbar*/
 .navbar {
     background-color: #1d1d1c;
@@ -79,6 +100,17 @@ body{
 	
 	display: flex;
 	flex-direction: column;
+  }
+
+  a:hover{
+	color:#D4D4D4;
+  }
+
+
+  a,span{
+	text-decoration: none;
+
+	color: #d4d4d4;
   }
   
   a{

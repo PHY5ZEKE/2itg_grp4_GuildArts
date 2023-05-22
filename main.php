@@ -199,7 +199,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
           <p class="subheading">' . $row["descGallery"] . '</p>
         </a>
         
-        <p class="subtext" style="padding-left: 0px;font-size: 20px;margin-top: 30px;">By: ';
+        <p class="subtext" style="padding-left: 0px;font-size: 20px;margin-top: 30px;">by&nbsp;';
     
     if (isset($_SESSION['userid']) && $_SESSION['userid'] == $row['userid']) {
       echo '<a href="profile.php">' . $row['useruid'] . '</a>';

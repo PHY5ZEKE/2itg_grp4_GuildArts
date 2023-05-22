@@ -19,8 +19,11 @@
     
     <form action = "includes\galleryupload.inc.php" method ="post" enctype ="multipart/form-data">
     <h1 class="mt-5 mb-3">Upload</h1>
+    <label>File Name</label>
     <input type ="text" name ="filename" placeholder ="File name...">
+    <label>Image Title</label>
     <input type ="text" name ="filetitle" placeholder ="Image Title..." required>
+    <label>Image Description</label>
     <input type ="text" name ="filedesc" placeholder ="Image Description..." required>
     <input type ="file" name ="file">
     <p><button type ="submit" name ="submit" style="background-color:#A65A28;">Upload</button></p>

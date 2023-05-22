@@ -105,10 +105,10 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
         <div class="row">
             <div class="col-lg-6 separator-line">
                 <div class="wrapper">
-                <button class="btn">
-                <a href="../main.php"><i class="fi fi-br-arrow-left" style = "color: #A65A28;font-size: 40px">
+                
+                <a href="../main.php"><button class="btn"><i class="fi fi-br-arrow-left" style = "color: #A65A28;font-size: 40px">
                         </i>
-                        </a></button>
+                        </button></a>
                     <div class="form-group">
                         
                     <center><p class="title" style="font-size: 35px;color: #e7e7e7;"><?php echo $row["titleGallery"]; ?></p></center>
