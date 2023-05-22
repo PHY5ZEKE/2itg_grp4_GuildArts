@@ -3,6 +3,8 @@ html {
     margin: 0;
 }
 
+
+
 body{
 	/* removes the horizontal scrollwheel */
 	overflow-x: hidden;
@@ -326,7 +328,7 @@ p, p a{
 	text-decoration: none;
 	font-family: 'Montserrat', sans-serif;
 	font-weight:bolder;
-	
+	color: #d4d4d4;
   }
   
 
@@ -359,4 +361,11 @@ p, p a{
 .glow-effect::after {
   right: 0;
 }
+
+
+
+  .heart-button.liked {
+    color: #ff0000;
+  }
+ 
 

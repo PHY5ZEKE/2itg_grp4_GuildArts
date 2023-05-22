@@ -65,7 +65,7 @@ $stmt->close();
                   </span>
                     <!--Art Marketplace-->
                     <span class="hovertext" data-hover="Art Marketplace">
-                  <button class="btn"><i class="fi fi-rs-shop"></i></button>
+                    <a href="artmarketplace.php"><button class="btn"><i class="fi fi-rs-shop"></i></button></a>
                   </span>
                     <!--Virtual Exhibit-->
                     <span class="hovertext" data-hover="Virtual Exhibit">
