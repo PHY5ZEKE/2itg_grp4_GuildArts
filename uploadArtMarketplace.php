@@ -22,7 +22,9 @@
                 
                 <input type="text" name="titleArt" placeholder="Art Title..." required>
                 <input type="text" name="descArt" placeholder="Art Description..." required>
-                <input type="text" name="priceArt" placeholder="Art Price..." required>
+                <input type="text" name="priceArt" placeholder="Art Price in PHP..." required>
+                <input type="text" name="email" placeholder="Email..." required>
+                <input type="text" name="contactNum" placeholder="Contact..." required>
                 <span class="error-message">
                     <?php
                     if (isset($_GET['error']) && $_GET['error'] === 'invalid_price') {

@@ -18,13 +18,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $title = trim($_POST["title"]);
         $description = trim($_POST["description"]);
         $price = trim($_POST["price"]);
+        $contact = trim($_POST["contact"]);
+        $email = trim($_POST["email"]);
 
         // Prepare an update statement
-        $sql = "UPDATE marketplace SET titleArt = ?, descArt = ?, priceArt = ? WHERE id = ? AND userid = ? AND useruid = ?";
+        $sql = "UPDATE marketplace SET titleArt = ?, descArt = ?, priceArt = ?, contact = ?, email = ? WHERE id = ? AND userid = ? AND useruid = ?";
 
         if ($stmt = $conn->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
-            $stmt->bind_param("ssiiis", $title, $description, $price, $id, $userid, $useruid);
+            $stmt->bind_param("ssdssiis", $title, $description, $price, $contact,$email,$id, $userid, $useruid);
 
             // Attempt to execute the prepared statement
             if ($stmt->execute()) {
@@ -66,6 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $title = $row["titleArt"];
                     $description = $row["descArt"];
                     $price = $row["priceArt"];
+                    $contact = $row["contact"];
+                    $email = $row["email"];
                 } else {
                     // URL doesn't contain a valid ID. Redirect to the error page
                     header("location: error.php");
@@ -118,6 +122,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="form-group">
                             <label>Price</label>
                             <input type="text" name="price" class="form-control" value="<?php echo $price; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Contact</label>
+                            <input type="text" name="contact" class="form-control" value="<?php echo $contact; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" name="email" class="form-control" value="<?php echo $email; ?>">
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>" />
                         <center>

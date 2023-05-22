@@ -151,9 +151,18 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
   <div class="bottom-section">
   <div class="form-group">
                     <p><b> Price:
-                        <?php echo $row["priceArt"]; ?></b></p>
+                        <?phpecho $row["priceArt"]; ?></b></p>
                     </div>
     </div>
+    <div class="form-group">
+                    <p><b> To purchase this art you may send an email to
+                        <?php echo $row["email"]; ?></b></p>
+                    </div>
+                    <p><b> or contact him at
+                        <?php echo $row["contact"]; ?></b></p>
+                    </div>
+    </div>
+    
 </div>
 </div>
 </div>

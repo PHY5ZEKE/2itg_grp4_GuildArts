@@ -4,6 +4,9 @@ if (isset($_POST['submit'])) {
     $titleArt = $_POST['titleArt'];
     $descArt = $_POST['descArt'];
     $priceArt = $_POST['priceArt'];
+    $contact = $_POST['contactNum'];
+    $email = $_POST['email'];
+    
 
     if ($priceArt <= 0) {
         header("Location: ../uploadArtMarketplace.php?error=invalid_price");
@@ -48,12 +51,13 @@ if (isset($_POST['submit'])) {
                         $maxOrder = $row['maxOrder'];
                         $setImageOrder = $maxOrder + 1;
 
-                        $sql = "INSERT INTO marketplace (userid, useruid, titleArt, descArt, imgFullNameArt, priceArt, orderArt) VALUES (?, ?, ?, ?, ?, ?, ?);";
+                        $sql = "INSERT INTO marketplace (userid, useruid, titleArt, descArt, imgFullNameArt, priceArt,email,contact,orderArt) VALUES (?, ?, ?, ?, ?, ?, ?,?,?);";
                         $stmt = mysqli_stmt_init($conn);
                         if (!mysqli_stmt_prepare($stmt, $sql)) {
                             echo "SQL statement failed";
                         } else {
-                            mysqli_stmt_bind_param($stmt, "sssssis", $userid, $useruid, $titleArt, $descArt, $imageFullNameArt, $priceArt, $setImageOrder);
+                            mysqli_stmt_bind_param($stmt, "sssssdssi", $userid, $useruid, $titleArt, $descArt, $imageFullNameArt, $priceArt, $email, $contact, $setImageOrder);
+
                             mysqli_stmt_execute($stmt);
 
                             move_uploaded_file($fileTempName, $fileDestination);
