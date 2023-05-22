@@ -1,8 +1,9 @@
 body {
-    background-image: url("crudeBackground.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+    background-image: url("bgdarkc.png");
+    background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
    }    
 .wrapper {
     width: 600px;
