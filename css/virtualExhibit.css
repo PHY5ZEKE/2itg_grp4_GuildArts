@@ -8,7 +8,7 @@ body{
 	/* removes the horizontal scrollwheel */
 	overflow-x: hidden;
   margin-top: 100px;
-	background-image: linear-gradient(to bottom, rgba( 29, 29, 28, 1) 25%, rgba(29, 29, 28, .7) 100%), url("bgdark.png");
+	background-image: linear-gradient(to bottom, rgba( 29, 29, 28, 1) 25%, rgba(29, 29, 28, .7) 100%), url("bg2.png");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
