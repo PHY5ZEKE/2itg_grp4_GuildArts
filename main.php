@@ -73,7 +73,7 @@ if (!isset($_SESSION['loggedin'])) {
                   </span>
                     <!--Art Marketplace-->
                    <span class="hovertext" data-hover="Art Marketplace">
-                   <a href="artmarketplace.php"><button class="btn"><i class="fi fi-rs-shop"></i></button>></a>
+                   <a href="artmarketplace.php"><button class="btn"><i class="fi fi-rs-shop"></i></button></a>
                   </span>
                     <!--Virtual Exhibit-->
                     <span class="hovertext" data-hover="Virtual Exhibit">
@@ -216,7 +216,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     // Get the total number of hearts for the gallery item
     $heartsCount = getGalleryItemHeartsCount($conn, $galleryId);
 
-    echo '
+    echo '<center> <article class="icon-straighter" style = "width: 100%; height 100%; align-items: center; justify-content: center;display: flex; flex-direction: row;">
     <form action="includes/heart.inc.php" method="post" style="width: 100px; height: 80px;">
       <div class="heart-container" style = "width: 100px; height: 20px; align-items: center; justify-content: center;">
         <button type="submit" name="heart-submit" class="btn heart-button ' . ($hasLiked ? 'liked' : '') . '">
@@ -239,9 +239,9 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
         <i class="fi fi-sr-pencil" style ="color: #22bbf2;"></i>
         </button>
         </a>
-      </div></div>';
+      </div></div></article></center>';
     } else {
-      echo '</div></div>';
+      echo '</div></div></article></center>';
     }
   }
 }
