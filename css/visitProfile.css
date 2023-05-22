@@ -1,0 +1,139 @@
+body{
+	background-color: #1d1d1c;
+}
+/*adjusts color of navbar*/
+.navbar {
+    background-color: #1d1d1c;
+  }
+/* The container of everything */
+.outer {
+	display: flex;
+	justify-content: center;
+	background-color: #1d1d1c;
+	border-bottom: 5px solid #fff;
+  }
+  
+  /* The container of the profile image */
+  .innerleft {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-right: 4%;
+  }
+  /* The container of the container of the image and info */
+.innerright > div {
+	margin-right: 25px 0;
+	padding: 25px;
+	background-color: #1d1d1c;
+}
+  /* The profile image */
+  .innerleft img {
+	position: right;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+  }
+  
+  .innerright h2 {
+	font-weight: BOLD;
+	font-size: 22px;
+	color: #A65A28;
+}
+.innerright h3 {
+	font-size: 15px;
+	color: #ffffff;
+}
+  /* The container of the user */
+  .user-info {
+	
+	display: flex;
+	flex-direction: column;
+  }
+  
+  a{
+	color:#1d1d1c;
+}
+  .btn {
+	border: none; /* Remove borders */
+	color: #D4D4D4; /* White text */
+	padding: 12px 16px; /* Some padding */
+	font-size: 30px; /* Set a font size */
+	cursor: pointer; /* Mouse pointer on hover */
+  }
+  .btn:hover {
+	background-color: #A65A28;
+  }
+  .btnNow {
+	background-color: #A65A28;
+	border: none; /* Remove borders */
+	color: #D4D4D4; /* White text */
+	padding: 12px 16px; /* Some padding */
+	font-size: 30px; /* Set a font size */
+	cursor: pointer; /* Mouse pointer on hover */
+  }
+  a, .navbar-brand{
+	text-decoration: none;
+	font-family: 'Montserrat', sans-serif;
+	font-weight:bolder;
+	
+  }
+  .btnNow:hover {
+	background-color: #A65A28;
+  }
+  /* The hover of the icons */
+.hovertext {
+	position: relative;
+  }
+  
+  .hovertext:before {
+	content: attr(data-hover);
+	visibility: hidden;
+	opacity: 0;
+	width: 140px;
+	background-color: #111111;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+	padding: 5px;
+	transition: opacity 0.3s ease-in-out;
+	
+	position: absolute;
+	z-index: 1;
+	left: 50%;
+	transform: translateX(-50%);
+	top: calc(100% + 10px);
+  }
+  
+  .hovertext:hover:before {
+	opacity: .7;
+	visibility: visible;
+  }
+
+  .gallery-container {
+	display: flex;
+	flex-wrap: wrap;
+  }
+
+  .image-container {
+	width: 33.33%; /* Each image container takes one-third of the width */
+	padding: 5px;
+	box-sizing: border-box;
+  }
+
+  .image-container a {
+	display: block;
+  }
+
+  .image-container div {
+	width: 100%;
+	padding-bottom: 100%; /* Maintain a square aspect ratio for the images */
+	background-size: cover;
+	background-position: center;
+  }
+
+  .clearfix {
+	clear: both;
+  }
+
+
+

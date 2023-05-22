@@ -83,17 +83,29 @@ $conn->close();
 <html>
 <head>
     <title>Edit User Profile</title>
+    <link href="..\css\profUpStyle.css" rel="stylesheet" type="text/css">
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('image-preview');
+                output.innerHTML = '<img src="' + reader.result + '">';
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
 </head>
 <body>
     <h1>Edit User Profile</h1>
     <form action="" method="post" enctype="multipart/form-data">
-        
 
         <label for="newBio">New Bio:</label>
         <textarea name="newBio" rows="4" cols="50"><?php echo $currentBio; ?></textarea><br><br>
 
         <label for="newPfp">New Profile Picture:</label>
-        <input type="file" name="newPfp"><br><br>
+        <input type="file" name="newPfp" onchange="previewImage(event)"><br><br>
+
+        <center><div class="image-preview" id="image-preview"></div></center>
 
         <input type="submit" name="submit" value="Update Profile">
     </form>

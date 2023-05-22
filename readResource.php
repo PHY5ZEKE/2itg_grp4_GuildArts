@@ -59,7 +59,7 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
 
 <head>
     <meta charset="UTF-8">
-    <title>View Record</title>
+    <title>View Resource</title>
     <!--Icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>

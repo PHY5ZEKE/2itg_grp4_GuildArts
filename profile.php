@@ -116,11 +116,11 @@ $stmt->close();
 </div>
 	<div class="innerright">
 		<div>
-            <h3><?=$_SESSION['userid']?><h3>
-            <h3><?=$_SESSION['useruid']?><h3>
-            <h3><?=$_SESSION['email']?><h3> 
-            <h3>Bio: <?=$bio?></h3>
-            <?php echo '<a href="includes\profileupdate.inc.php?usersId=' . $_SESSION['userid'] . '" title="Update Post" data-toggle="tooltip" class="btn btn-primary">Edit Profile</span></a>';
+            <!-- <h3><?=$_SESSION['userid']?><h3> -->
+            <h2 style="font-size: 50px;"><?=$_SESSION['useruid']?><h2>
+            <!-- <h3><?=$_SESSION['email']?><h3>  -->
+            <h4>- <?=$bio?></h4>
+            <?php echo '<a href="includes\profileupdate.inc.php?usersId=' . $_SESSION['userid'] . '" title="Update Post" data-toggle="tooltip"><button class="buttonEdit">Edit Profile</button></span></a>';
                 ?>
         </div>
     </div>
@@ -150,11 +150,11 @@ if (isset($_SESSION['userid'])) {
     while ($row = mysqli_fetch_assoc($result)) {
       // Add the image container for each image
       
-      echo '<div class="image-container">';
-      echo '<a href="includes\galleryread.inc.php?id=' . $row['id'] . '">';
-      echo '<div style="background-image: url(uploads/gallery/'.$row["imgFullNameGallery"].');"></div>';
-      echo '</a>';
-      echo '</div>';
+      echo '<div class="image-item">';
+    echo '<a href="includes/galleryreadP.inc.php?id=' . $row['id'] . '">';
+    echo '<div class="image-wrapper" style="background-image: url(uploads/gallery/'.$row["imgFullNameGallery"].');"></div>';
+    echo '</a>';
+    echo '</div>';
 
       $counter++;
 

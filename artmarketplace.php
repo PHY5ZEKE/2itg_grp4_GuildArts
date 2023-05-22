@@ -19,7 +19,7 @@ if (!isset($_SESSION['loggedin'])) {
 	<head>
 		<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-		<title>Home Page</title>
+		<title>Art Marketplace</title>
         <!--Icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
@@ -32,7 +32,7 @@ if (!isset($_SESSION['loggedin'])) {
         <!--Bootstrap-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-		<link href="css\mainPageStyle.css" rel="stylesheet" type="text/css">
+		<link href="css\artmarketplaceStyle.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
 	</head>
 	<body>
@@ -72,8 +72,8 @@ if (!isset($_SESSION['loggedin'])) {
                     <a href="resource.php"><button class="btn"><i class="fi fi-rr-books"></i></button></a>
                   </span>
                     <!--Art Marketplace-->
-                   <span class="hovertext" data-hover="Art Marketplace">
-                   <a href="artmarketplace.php"><button class="btn"><i class="fi fi-rs-shop"></i></button>></a>
+                    <span class="hovertext" data-hover="Art Marketplace">
+                  <button class="btn"><i class="fi fi-rs-shop"></i></button>
                   </span>
                     <!--Virtual Exhibit-->
                     <span class="hovertext" data-hover="Virtual Exhibit">
@@ -102,7 +102,7 @@ if (!isset($_SESSION['loggedin'])) {
                 </div>
               </nav>
             
-              <a href="uploadGallery.php" class="button-link">
+              <a href="uploadArtMarketplace.php" class="button-link">
               <button class="buttonPost">
                   <div class="svg-wrapper-1">
                     <div class="svg-wrapper">
@@ -112,11 +112,11 @@ if (!isset($_SESSION['loggedin'])) {
                       </svg>
                     </div>
                   </div>
-                  <span style="color:#D4D4D4;">Create Post</span>
+                  <span style="color:#D4D4D4;">Create New Listing</span>
                 </button>
               </a>
-              <center><p class="title">GuildArts Gallery</p>
-              <p class="subtext">Works of art for all to see!</p></center>
+              <center><p class="title">GuildArts Art Marketplace</p>
+              <p class="subtext">Buy and Sell Art</p></center>
               <div class="bleeding-light">
                 
               </div>          
@@ -146,7 +146,7 @@ handleScroll();
     <?php
 include_once 'includes/dbh.inc.php';
 
-$sql = "SELECT * FROM gallery ORDER BY orderGallery DESC;";
+$sql = "SELECT * FROM marketplace ORDER BY orderArt DESC;";
 $stmt = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($stmt, $sql)) {
   echo "SQL statement failed!";
@@ -158,10 +158,9 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     echo '
     <div class="gallery-container-color">
       <div class="gallery-container">
-        <a href ="includes/galleryread.inc.php?id=' . $row['id'] . '">
-          <div style="background-image: url(uploads/gallery/' . $row["imgFullNameGallery"] . ');background-size: cover;border-radius: 25px;border: 4px solid #D4D4D4;"></div>
-          <h3>' . $row["titleGallery"] . '</h3>
-          <p class="subheading">' . $row["descGallery"] . '</p>
+        <a href ="">
+          <div style="background-image: url(uploads/marketplace/' . $row["imgFullNameArt"] . ');background-size: cover;border-radius: 25px;border: 4px solid #D4D4D4;"></div>
+          <h3>' . $row["titleArt"] . '</h3>
         </a>
         
         <p class="subtext" style="padding-left: 0px;font-size: 20px;margin-top: 30px;">By: ';
@@ -174,26 +173,29 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     
     <p style="font-size: 15px;margin-top: 20px;opacity:.5;"> ' . $row["created_at"] . '</p>';
 
-    echo '<center><a href="includes/galleryread.inc.php?id=' . $row['id'] . '">
-      <button class="btn"#d22828>
-        <i class="fi fi-br-user" href="profile.php"></i>
-      </button>
-    </a>
-
-    <button class="btnlike">
-      <i class="fi fi-rr-paint-brush"></i>
-    </button>
     
-    ';
+    echo '<center>';
+
+    // Check if the session ID is not the same as the row's userid
+    if ($_SESSION['userid'] != $row['userid']) {
+    echo '
+    <a href="includes/artmarketplaceread.inc.php?id=' . $row['id'] . '">
+        <button class="btn btn-primary">
+            Purchase Art
+        </button>
+    </a>';
+}
+
+echo '</center>';
     
 
     if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
       echo '
-        <a href="includes/gallerydelete.inc.php?id=' . $row['id'] . '">
+      <a href="includes/artmarketplacedelete.inc.php?id=' . $row['id'] . '">
         <button class="btn"><i class="fi fi-sr-trash"style = "color: #d22828;"></button></i>
         </a>
         
-        <a href="includes/galleryupdate.inc.php?id=' . $row['id'] . '">
+        <a href="includes/artmarketplaceupdate.inc.php?id=' . $row['id'] . '">
         <button class="btn">
         <i class="fi fi-sr-pencil" style ="color: #22bbf2;"></i>
         </button>
@@ -205,14 +207,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
   }
 }
 ?>
-              <script>
-    const btnElList = document.querySelectorAll('.btnlike');
-    btnElList.forEach(btnEl => {
-      btnEl.addEventListener('click', () => {
-        btnEl.classList.add('special');
-      });
-    });
-              </script>
+
 
 </div>
   

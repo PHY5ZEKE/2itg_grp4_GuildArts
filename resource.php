@@ -20,7 +20,7 @@ require_once 'includes\dbh.inc.php';
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Home Page</title>
+		<title>Resource Library</title>
         <!--Icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
@@ -97,9 +97,6 @@ require_once 'includes\dbh.inc.php';
               </button>
                 </a>
               </center>
-              <div class="cardR">
-    <h2>CARD</h2>
-</div>
               <br>
 
               <section class="resource-links">
@@ -119,7 +116,8 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
         $fileName = $row["resourceFile"]; // Set the file name here
         $filePath = 'uploads/resources/' . $fileName; // Set the file path here
 
-        echo '<div class="card">
+        echo '
+        <div class="card">
                 <div class="card-header">
                     <h2>' . $row["typeFile"] . '</h2>
                 </div>

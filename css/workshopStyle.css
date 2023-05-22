@@ -201,6 +201,7 @@ iframe{
 .title{
 	position: relative;
     font-size: 80px;
+	
     margin-left: 40px;
     color: #A65A28;
     font-weight: bolder;
@@ -216,6 +217,7 @@ iframe{
     color:#D4D4D4;
     padding-left: 25px;
 	padding-right: 25px;
+	font-weight: bold;
 
 }
 
