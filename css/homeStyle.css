@@ -38,8 +38,8 @@ body
 
 }
 /*adjusts the heading*/
-.title 
-{
+
+  .title {
     position: relative;
     font-size: 100px;
     margin-left: 40px;
@@ -48,8 +48,34 @@ body
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 3px;
     text-shadow: 2.5px 3.5px 4px rgba(23, 12, 4, 0.786),
-	-3px -3px 4px rgba(139, 76, 35, 0.329);
-}
+                 -3px -3px 4px rgba(139, 76, 35, 0.329);
+  }
+
+  @media (max-width: 576px) {
+    /* Small devices (576px and below) */
+    .title {
+      font-size: 60px;
+      margin-left: 20px;
+    }
+  }
+
+  @media (min-width: 577px) and (max-width: 992px) {
+    /* Medium devices (577px to 992px) */
+    .title {
+      font-size: 80px;
+      margin-left: 30px;
+    }
+  }
+
+  @media (min-width: 993px) {
+    /* Large devices (993px and above) */
+    .title {
+      font-size: 100px;
+      margin-left: 40px;
+    }
+  }
+
+
 /*modifies the subheading*/
 .subheading
 {

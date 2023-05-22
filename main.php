@@ -213,16 +213,20 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 
     // Check if the user has liked the gallery item
     $hasLiked = isset($_SESSION['userid']) && hasLikedGalleryItem($conn, $galleryId, $userId);
-
-    echo '<form action="includes/heart.inc.php" method="post">';
-    echo '<input type="hidden" name="gallery_id" value="' . $galleryId . '">';
-    echo '<button type="submit" name="heart-submit" class="btn" style="color: ' . ($hasLiked ? '#ff0000' : '#000000') . '"><i class="fa fa-heart"></i></button>';
-    echo '</form>';
-
     // Get the total number of hearts for the gallery item
     $heartsCount = getGalleryItemHeartsCount($conn, $galleryId);
 
-    echo '<p>Total Hearts: ' . $heartsCount . '</p>';
+    echo '
+    <form action="includes/heart.inc.php" method="post" style="width: 100px; height: 80px;">
+      <div class="heart-container" style = "width: 100px; height: 20px; align-items: center; justify-content: center;">
+        <button type="submit" name="heart-submit" class="btn heart-button ' . ($hasLiked ? 'liked' : '') . '">
+          <i class="fa fa-heart"></i>
+        </button>
+        <span> ' . $heartsCount . '</span>
+      </div>
+      <input type="hidden" name="gallery_id" value="' . $galleryId . '">
+    </form>';
+
 
     if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
       echo '
