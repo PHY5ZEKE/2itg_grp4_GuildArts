@@ -61,7 +61,7 @@ if (!isset($_SESSION['loggedin'])) {
 
                   <!--Home-->
                   <span class="hovertext" data-hover="Home">
-                    <a href="main.php"><button class="btn"><i class="fi fi-ss-house-chimney" style = "color: #A65A28;"></i></button></a>
+                    <a href="main.php"><button class="btn"><i class="fi fi-ss-house-chimney"></i></button></a>
                     </span>
                     <!--Online Workshops-->
                     <span class="hovertext" data-hover="Online Workshops">
@@ -73,7 +73,7 @@ if (!isset($_SESSION['loggedin'])) {
                   </span>
                     <!--Art Marketplace-->
                     <span class="hovertext" data-hover="Art Marketplace">
-                  <button class="btn"><i class="fi fi-rs-shop"></i></button>
+                  <button class="btn"><i class="fi fi-rs-shop" style = "color: #A65A28;"></i></button>
                   </span>
                     <!--Virtual Exhibit-->
                     <span class="hovertext" data-hover="Virtual Exhibit">

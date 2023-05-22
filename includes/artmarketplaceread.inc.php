@@ -105,28 +105,27 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
                         </i>
                         </a></button>
                     <div class="form-group">
-                        <label>Title</label>
-                        <p class="title"><b><?php echo $row["titleArt"]; ?></b></p>
+                        
+                    <center><p class="title" style="font-size: 35px;color: #e7e7e7;"><b><?php echo $row["titleArt"]; ?></b></p></center>
                     </div>
                     <div class="form-group">
-                        <div class="image-container"></div>
-                    </div>
-                    <div class="form-group">
-                        <label>Description</label>
-                        <p><b><?php echo $row["descArt"]; ?></b></p>
-                    </div>
-                    <div class="form-group">
-                    
-                    <p><b><?php echo $row["useruid"]; ?></b></p>
+                        <div class="image-container">
+                        <a href="<?php echo '../uploads/marketplace/'.$row["imgFullNameArt"]; ?>"  target="_blank"><div class="image-container"></div></a>
+                        </div>
                     </div>
                     <div class="form-group">
                         
-                        <p><b><?php echo $row["created_at"]; ?></b></p>
+                    <p class="desc"><b>- <?php echo $row["descArt"]; ?></b></p>
                     </div>
                     <div class="form-group">
-                    <p><b> Post ID:
-                        <?php echo $row["id"]; ?></b></p>
+                    
+                    <p class="user" style="color: #A65A28;"><b><?php echo $row["useruid"]; ?></b></p>
                     </div>
+                    <div class="form-group">
+                        
+                    <p class="sub" style="padding-bottom: 20px;"><b><?php echo $row["created_at"]; ?></b></p>
+                    </div>
+                    
 
                     <?php
                       if (isset($_SESSION['userid']) && $_SESSION['useruid'] === $row['useruid']) {
@@ -150,15 +149,15 @@ if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
   </div>
   <div class="bottom-section">
   <div class="form-group">
-                    <p><b> Price:
-                        <?phpecho $row["priceArt"]; ?></b></p>
+                    <p class="sale"><b> Price:</p>
+                    <p class="sale" style="color: #A65A28;">Php: <?php echo $row["priceArt"]; ?></b></p>
                     </div>
     </div>
     <div class="form-group">
-                    <p><b> To purchase this art you may send an email to
-                        <?php echo $row["email"]; ?></b></p>
+                    <p class="sale"><b> To purchase this art you may send an email to</p>
+                    <p class="sale" style="color: #A65A28;"><?php echo $row["email"]; ?></b></p>
                     </div>
-                    <p><b> or contact him at
+                    <p class="sale"><b> or contact me at
                         <?php echo $row["contact"]; ?></b></p>
                     </div>
     </div>

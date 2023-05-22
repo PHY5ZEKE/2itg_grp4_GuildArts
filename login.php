@@ -32,7 +32,7 @@
                       <li class="nav-item">
                       <a class="nav-link" href="index.html" style = "color: #D4D4D4;font-family: 'Source Sans Pro', sans-serif; font-size: 20px; padding-right: 15px;">Home</a>
                       </li>
-                      <a class="nav-link" href="#" style = "color: #D4D4D4;font-family: 'Source Sans Pro', sans-serif; font-size: 20px; padding-right: 15px;">About</a>
+                      
                       <!--Dropdown Link for Features-->
                     </ul>
                     
@@ -57,7 +57,7 @@
                 <input input class ="form-control" type = "text" name ="uid" required>
 
                 <label for ="password"><b>Password</b></label>
-                <input input class ="form-control" type = "pwd" name ="pwd" required>
+                <input input class ="form-control" type = "password" name ="pwd" required>
                 <hr class = "mb-3">
                 <center><a class="nav-link" aria-current="page" href="registration.php" style="color:#525252;font-size: 19px;">Don't have an account? Click Me</a></center>
                 </br>

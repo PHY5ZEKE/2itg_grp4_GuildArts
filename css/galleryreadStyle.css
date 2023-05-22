@@ -28,6 +28,13 @@ body {
 
 }
 
+.sale{
+  color:#D4D4D4;
+  text-align: justify;
+  font-family: 'Source Sans Pro', sans-serif; 
+  font-size: 24px;
+}
+
 .sub{
   color:#D4D4D4;
   text-align: justify;
@@ -65,7 +72,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  
+
   
 }
 

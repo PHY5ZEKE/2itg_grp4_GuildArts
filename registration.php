@@ -34,9 +34,7 @@
                         <!--Active Link-->
                         <a class="nav-link" aria-current="page" href="index.html" style = "color: #D4D4D4;font-family: 'Source Sans Pro', sans-serif; font-size: 20px; padding-right: 15px;">Home</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#" style = "color: #D4D4D4;font-family: 'Source Sans Pro', sans-serif; font-size: 20px; padding-right: 15px;">About</a>
-                      </li>
+                      
                       <!--Dropdown Link for Features-->
 
                     </ul>
