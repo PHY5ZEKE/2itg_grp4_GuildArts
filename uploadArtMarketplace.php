@@ -19,11 +19,15 @@
         <div class="col-md-12">
             <form action="includes/artmarketplaceupload.inc.php" method="post" enctype="multipart/form-data">
                 <h1 class="mt-5 mb-3">Upload</h1>
-                
+                <label>Art Title</label>
                 <input type="text" name="titleArt" placeholder="Art Title..." required>
+                <label>Art Description</label>
                 <input type="text" name="descArt" placeholder="Art Description..." required>
+                <label>Art Price in PHP *number only*</label>
                 <input type="text" name="priceArt" placeholder="Art Price in PHP..." required>
+                <label>Contact Email</label>
                 <input type="text" name="email" placeholder="Email..." required>
+                <label>Contact number/social media</label>
                 <input type="text" name="contactNum" placeholder="Contact..." required>
                 <span class="error-message">
                     <?php
