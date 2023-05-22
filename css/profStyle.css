@@ -2,7 +2,7 @@ body{
 	/* removes the horizontal scrollwheel */
 	overflow-x: hidden;
 	margin-top: 100px;
-	background-color: #1d1d1c;
+	background-image: linear-gradient(to bottom, rgba( 29, 29, 28, 1) 25%, rgba(29, 29, 28, .7) 100%), url("bgdark.png");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -37,7 +37,7 @@ body{
 	display: flex;
 	justify-content: center;
 	background-color: #1d1d1c;
-	border-bottom: 5px solid #fff;
+	border-bottom: 1px solid #a8a7a9ce;
   }
   
   /* The container of the profile image */
@@ -46,22 +46,24 @@ body{
 	justify-content: center;
 	align-items: center;
 	padding-right: 4%;
-
   }
-
-  /* The container of the container of the image and info */
-.innerright > div {
-	margin-right: 25px 0;
-	padding: 25px;
-	background-color: #1d1d1c;
-}
+  
   /* The profile image */
   .innerleft img {
 	position: right;
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
+	box-shadow: 0 0 0 3px #a9a7a73b;
   }
+  
+  /* The container of the container of the image and info */
+.innerright > div {
+	margin-right: 25px 0;
+	padding: 25px;
+	background-color: #1d1d1c;
+}
+
   
   .innerright h2 {
 	font-weight: BOLD;

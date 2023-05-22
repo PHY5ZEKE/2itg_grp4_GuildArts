@@ -94,10 +94,10 @@ if (isset($_GET['userid']) && isset($_GET['useruid'])) {
     <?php
 		echo'<div class="innerright">
 		<div>
-            <h3>Name: '.$name.'<h3>
-            <h3>Username: '.$username.'</p>
-            <h3>Email: '. $email.'</p>
-            <h3>Bio:' .$bio.'<h3>
+            
+            <h2 style="font-size: 30px;">'.$username.'</h2>
+            
+            <h4>- ' .$bio.'</h4>
             </div>
 </div>';
 ?>
@@ -126,11 +126,11 @@ if (isset($selectedUserID)) {
     while ($row = mysqli_fetch_assoc($result)) {
       // Add the image container for each image
       
-      echo '<div class="image-container">';
-      echo '<a href="includes\galleryread.inc.php?id=' . $row['id'] . '">';
-      echo '<div style="background-image: url(uploads/gallery/'.$row["imgFullNameGallery"].');"></div>';
-      echo '</a>';
-      echo '</div>';
+      echo '<div class="image-item">';
+    echo '<a href="includes/galleryreadP.inc.php?id=' . $row['id'] . '">';
+    echo '<div class="image-wrapper" style="background-image: url(uploads/gallery/'.$row["imgFullNameGallery"].');"></div>';
+    echo '</a>';
+    echo '</div>';
 
       $counter++;
 
